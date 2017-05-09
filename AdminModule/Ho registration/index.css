@@ -1,0 +1,10 @@
+body{
+ font-family: 'Raleway', sans-serif; 
+ min-width:800px;
+  min-height:800px; 
+    background: white;
+    background: url(../images/hs.jpg) no-repeat;
+     width:  100%;
+    height: 730px;
+     background-size: cover;
+}
