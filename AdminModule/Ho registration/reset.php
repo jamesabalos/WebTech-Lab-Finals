@@ -4,7 +4,7 @@ session_start();
 
 	if( isset($_SESSION['userEmail']) ){
 		$email = $_SESSION['userEmail'];
-		$query = mysqli_query($con,"SELECT * FROM home_owner WHERE email='$email'");
+		$query = mysqli_query($con,"SELECT * FROM users WHERE email='$email'");
 
 		if( $query->num_rows == "0" ){ //no email found
 			$_SESSION['message'] = "User with this $email does not exists!";

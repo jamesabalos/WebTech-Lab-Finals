@@ -20,7 +20,7 @@
   		<div class="logout_module">
           <h1>Thank You!</h1>
               
-          <p>You have successfully log out</p>
+          <p>You have successfully logged out</p>
           
           <a href="index.html"><button class="btn btn-primary">HOME</button></a>
 

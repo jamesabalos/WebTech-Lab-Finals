@@ -24,11 +24,11 @@ session_start();
 				if( isset($_SESSION['message']) AND !empty($_SESSION['message']) ):
 					echo $_SESSION['message'];
 				else:
-					header("location: login1.php");
+					header("location: index.html");
 				endif;
 			?>
 		</p>
-		<a href="login1.php"><button class="btn btn-primary">Log in again</button></a>
+		<a href="index.html"><button class="btn btn-primary">HOME</button></a>
 
 
 	</div>

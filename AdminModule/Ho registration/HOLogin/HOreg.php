@@ -1,11 +1,11 @@
 <?php
 
-require_once("ConnectDB.php");
-	
+// require_once("../ConnectDB.php");
 
-	$_SESSION['last_name'] = $_POST['last_name'];
-	$_SESSION['first_name'] = $_POST['first_name'];
-	$_SESSION['email'] = $_POST['email'];
+
+	// $_SESSION['last_name'] = $_POST['last_name'];
+	// $_SESSION['first_name'] = $_POST['first_name'];
+	// $_SESSION['email'] = $_POST['email'];
 	
  $lname = ($_POST['last_name']);
  $fname = ($_POST['first_name']);
@@ -22,7 +22,7 @@ require_once("ConnectDB.php");
 
  if($checkEmailDuplicate->num_rows > "0"){
  	$_SESSION['message'] = 'User with this email already exist!';
- 	header("location: error.php");
+ 	header("location: ../error.php");
 
  }else{
 	$sql =  "INSERT INTO `home_owner` (last_name,first_name,password, email, birthdate, address,address2,gender,cp_no,tel_no)
@@ -31,12 +31,13 @@ require_once("ConnectDB.php");
 	if(mysqli_query($con, $sql)){
 	  //echo "successful";
 	  $_SESSION['message'] = "The account $email have successfully registered.";
-	  header('Location: success.php');
+	  header('Location: ../success.php');
 
 	// header('Location: index.html');
 	}
 	else{
 	 $_SESSION['message'] = "ERROR: Could not connect to database". mysqli_error($con);
+	 header('Location: ../error.php');
 	}
 
  }
