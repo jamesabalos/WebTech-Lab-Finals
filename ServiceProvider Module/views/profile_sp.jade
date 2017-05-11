@@ -1,10 +1,10 @@
 extends layout
 
 block content
-	.container.profile.text-center
+	.container.profile
 		.row
 			.col-sm-3.well
-				.well
+				.well.text-center
 					p     
 						img.img-circle(src='./images/male.png', height='90', width='90', alt='Avatar')
 					p.name
@@ -14,8 +14,8 @@ block content
 						button.btn.btn-danger.span.glyphicon.glyphicon-log-out(class='data-toggle=', title='Logout!', type='button') Logout
 
 
-				.well
-					p
+				.well.text-center
+					p.title
 						|SERVICES OFFERED
 					p
 						a(href='/')
@@ -27,14 +27,18 @@ block content
 						|           
 						span.label.label-info Painting
 				.well
-					p
+					p.title.text-center
 						| BASIC INFORMATION
-					p 
-						span.glyphicon.glyphicon-user
-						| 
-					p
-						span.glyphicon.glyphicon-phone
-						| 
+					p.companyName
+						span.glyphicon.glyphicon-copyright-mark		Service Incorporated
+					p.phoneNumber
+						span.glyphicon.glyphicon-earphone	0998172478
+					p.email
+						span.glyphicon.glyphicon-envelope	service@gmail.com
+					p.companyAddress
+						span.glyphicon.glyphicon-globe	876 Juan Luna Street, Makati
+					p.rating
+						span.glyphicon.glyphicon-ok
 			.col-sm-9
 				.row
 					.col-sm-12
@@ -42,7 +46,7 @@ block content
 				.row
 					.col-sm-3
 						.well
-							p 
+							p.text-center 
 								img.img-circle(src='./images/maleDashboard.png', height='90', width='90', alt='Avatar')
 					.col-sm-9
 						.well
@@ -51,7 +55,7 @@ block content
 				.row
 					.col-sm-3
 						.well
-							p 
+							p.text-center
 								img.img-circle(src='./images/male1Dashboard.png', height='90', width='90', alt='Avatar')
 					.col-sm-9
 						.well
@@ -60,7 +64,7 @@ block content
 				.row
 					.col-sm-3
 						.well
-							p 
+							p.text-center 
 								img.img-circle(src='./images/maleDashboard.png', height='90', width='90', alt='Avatar')
 					.col-sm-9
 						.well
@@ -69,7 +73,7 @@ block content
 				.row
 					.col-sm-3
 						.well
-							p 
+							p.text-center 
 								img.img-circle(src='./images/male1Dashboard.png', height='90', width='90', alt='Avatar')
 					.col-sm-9
 						.well
