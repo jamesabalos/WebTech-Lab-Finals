@@ -225,3 +225,18 @@ ul.alert-dropdown {
 .panel-yellow > a:hover {
     color: #df8a13;
 }
+
+.logo{
+    margin-top: -7px;
+    width: 38px;
+    height: 38px;
+}
+
+.form-group{
+    margin-left: 5px;
+    width:95%;
+}
+.img {
+    width:200px;
+    height:350px;
+}

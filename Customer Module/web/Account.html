@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin - Bootstrap Admin Template</title>
+    <title>Home Owner</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -78,7 +78,7 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> RandyK <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li>
-                            <a href="#"><i class="fa fa-fw fa-user"></i> Profile</a>
+                            <a href="profile.html"><i class="fa fa-fw fa-user"></i> Profile</a>
                         </li>
                         <li class="divider"></li>
                         <li>
@@ -100,15 +100,19 @@
             </form>
                     </li>
                     <li>
-                        <a href="web/index.html"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
+                        <a href="Home.html"><i class="fa fa-fw fa-home"></i> Home</a>
                     </li>
                     <li>
-                        <a href="web/inbox.html"><i class="fa fa-fw fa-envelope"></i>Inbox</a>
+                        <a href="index.html"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
                     </li>
                     <li>
-                        <a href="web/Account.html"><i class="fa fa-fw fa-cog"></i> Account Settings</a>
+                        <a href="inbox.html"><i class="fa fa-fw fa-envelope"></i>Inbox</a>
+                    </li>
+                    <li>
+                        <a href="Account.html"><i class="fa fa-fw fa-cog"></i> Account Settings</a>
                     </li>
                 </ul>
+
             </div>
             <!-- /.navbar-collapse -->
         </nav>
@@ -121,30 +125,101 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <h1 class="page-header">
-                            Personal Information
+                            Account Settings
                         </h1>
-                                    <div class="container">    
-                <div class="jumbotron">
-                  <div class="row">
-                      <div class="col-md-4 col-xs-12 col-sm-6 col-lg-4">
-                          <img src="profile.png
-                               " alt="stack photo" class="img">
-                      </div>
-                      <div class="col-md-8 col-xs-12 col-sm-6 col-lg-8">
-                          <div class="container" style="border-bottom:1px solid black">
-                            <h2>Randy Antero</h2>
-                          </div>
-                            <hr>
-                          <ul class="container details">
-                            <li><p><span class="glyphicon glyphicon-earphone one" style="width:50px;"></span>+91 90000 00000</p></li>
-                            <li><p><span class="glyphicon glyphicon-envelope one" style="width:50px;"></span>2154291@slu.edu.ph</p></li>
-                            <li><p><span class="glyphicon glyphicon-map-marker one" style="width:50px;"></span>Teodora Alonzo St. Baguio City</p></li>  
-                          </ul>
-                      </div>
-                  </div>
-                </div>
+                        <ol class="breadcrumb">
+                            <li>
+                                <i class="fa fa-dashboard"></i>  <a href="index.html">Dashboard</a>
+                            </li>
+                            <li class="active">
+                                <i class="fa fa-fw fa-cog"></i> Account Settings
+                            </li>
+                        </ol>
+                        <div class="container">
+<form class="form-horizontal">
+<fieldset>
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="textinput">First Name</label>  
+  <div class="col-md-4">
+  <input id="textinput" name="textinput" type="text" placeholder="First Name" class="form-control input-md"> 
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="textinput">Middle Name</label>  
+  <div class="col-md-4">
+  <input id="textinput" name="textinput" type="text" placeholder="Middle Name" class="form-control input-md"> 
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="textinput">Last Name</label>  
+  <div class="col-md-4">
+  <input id="textinput" name="textinput" type="text" placeholder="Last Name" class="form-control input-md"> 
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="textinput">Current Email ID</label>  
+  <div class="col-md-4">
+  <input id="textinput" name="textinput" type="text" placeholder="your current email " class="form-control input-md">
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="textinput">New Email ID</label>  
+  <div class="col-md-4">
+  <input id="textinput" name="textinput" type="text" placeholder="your new email " class="form-control input-md"> 
+  </div>
+</div>
+
+<!-- Password input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="passwordinput">new password</label>
+  <div class="col-md-4">
+    <input id="passwordinput" name="passwordinput" type="password" placeholder="new password" class="form-control input-md">
+    
+  </div>
+</div>
+
+<!-- Password input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="passwordinput">repeat password</label>
+  <div class="col-md-4">
+    <input id="passwordinput" name="passwordinput" type="password" placeholder="repeat password" class="form-control input-md">
+  </div>
+  <div class="form-group">
+<div class="form-group">
+  <div class="col-md-4">
+    <button id="singlebutton" name="singlebutton" class="btn btn-success">Save Changes</button>
+    <button id="singlebutton" name="singlebutton" class="btn btn-danger">Cancel</button>
+  </div>
+</div>
+
+<!-- Button -->
+<div class="form-group">
+  <div class="col-md-4">
+
+  </div>
+</div>
+</div>
+</div>
+</fieldset>
+</form>
+
+</div>
                     </div>
                 </div>
+                <!-- /.row -->
+
+                <div class="row">
+                    <div class="col-lg-6">
+
+
+
+                    </div>
+                
                 <!-- /.row -->
 
             </div>
@@ -161,6 +236,7 @@
 
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
+
 
 </body>
 
