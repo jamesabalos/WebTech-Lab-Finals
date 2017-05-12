@@ -8,6 +8,8 @@ html
     link(href='stylesheets/bootstrap.css', rel='stylesheet')
     link(href='..//../assets/css/ie10-viewport-big-workaround.css', rel='stylesheet')
     link(href='stylesheets/style.css', rel='stylesheet')
+    link(href='stylesheets/footer.css', rel='stylesheet')
+    link(rel='stylesheet', href='http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css')
 
  body
     // Navigation
@@ -28,15 +30,44 @@ html
             li
               a(href='/request') Requests
           ul.nav.navbar-nav.navbar-right
-            li
-              a(href='/profile')
-                span.glyphicon.glyphicon-user
-                |  My Account
+            li.dropdown
+              a.dropdown-toggle(data-toggle='dropdown', href='#')
+                | My Profile
+                span.caret
+              ul.dropdown-menu
+                li
+                  a(href='#') View Profile
+                li
+                  a(href='#') Logout
 
     script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js')
     script(src='javascripts/bootstrap.js')
 
     block content
-    footer
-      .container
-      p.footer-block.text-center RenderIt - Home Services 2017 | All Rights Reserved
+    footer.footer-distributed
+      .footer-left
+        h3 Company Name
+        p.footer-links
+          a(href='#') Home
+          |           |
+          a(href='#') Booking
+          |           |
+          a(href='#') Requests
+          |           |
+          a(href='#') My Profile
+        p.footer-company-name Company Name © 2017
+      .footer-center
+        div
+          i.fa.fa-map-marker
+          p Baguio, Philippines
+        div
+          i.fa.fa-phone
+          p 09253695283
+        div
+          i.fa.fa-envelope
+          p
+            a(href='mailto:support@company.com') support@company.com
+      .footer-right
+        p.footer-company-about
+          span About RenderIt!
+          |           RenderIt is a company that...

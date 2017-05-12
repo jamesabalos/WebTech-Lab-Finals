@@ -11,32 +11,41 @@ block content
 						|Pedro Agustin
 					p
 						a(href='/')
-						button.btn.btn-danger.span.glyphicon.glyphicon-log-out(class='data-toggle=', title='Logout!', type='button') Logout
+						button.btn.btn-danger.btn-sm(type='button', data-toggle='modal', data-target='#myModal') Logout
 
 
 				.well.text-center
-					p.title
-						|SERVICES OFFERED
-					p
-						a(href='/')
-						button.btn.btn-success.span.glyphicon.glyphicon-plus(class='data-toggle=', title='Add More Services!', type='button') Add     
+					p.title SERVICES OFFERED
+					button.btn.btn-success.btn-sm(type='button', data-toggle='modal', data-target='#addServiceDiv') Add
+					#addServiceDiv.modal.fade(role='dialog')
+						.modal-dialog
+							// Modal content
+							.modal-content
+								.modal-header
+									button.close(type='button', data-dismiss='modal') ×
+									h4.modal-title Add a Service
+								.modal-body
+									.form-group
+										label(for='addService') What Service will you add?
+										input#addService.form-control(type='text')
+								.modal-footer
+									button.btn.btn-success(type='button') Add
+									button.btn.btn-danger(type='button', data-dismiss='modal') Close
 					p
 						span.label.label-info Laundry
-						|           
 						span.label.label-info Plumbing
-						|           
 						span.label.label-info Painting
 				.well
 					p.title.text-center
 						| BASIC INFORMATION
 					p.companyName
-						span.glyphicon.glyphicon-copyright-mark		Service Incorporated
+						span.glyphicon.glyphicon-copyright-mark
 					p.phoneNumber
-						span.glyphicon.glyphicon-earphone	0998172478
+						span.glyphicon.glyphicon-earphone
 					p.email
-						span.glyphicon.glyphicon-envelope	service@gmail.com
+						span.glyphicon.glyphicon-envelope
 					p.companyAddress
-						span.glyphicon.glyphicon-globe	876 Juan Luna Street, Makati
+						span.glyphicon.glyphicon-globe
 					p.rating
 						span.glyphicon.glyphicon-ok
 			.col-sm-9
