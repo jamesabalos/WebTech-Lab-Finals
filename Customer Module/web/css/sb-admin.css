@@ -235,6 +235,7 @@ ul.alert-dropdown {
 .form-group{
     margin-left: 5px;
     width:95%;
+    color:black;
 }
 .img {
     width:200px;
@@ -244,4 +245,8 @@ ul.alert-dropdown {
 .jumbotron { 
     background-color: #333
     color: #ffffff;
+}
+.container{
+    margin-top:15px;
+    color:floralwhite;
 }

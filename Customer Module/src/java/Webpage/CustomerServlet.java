@@ -5,7 +5,11 @@
  */
 package Webpage;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.util.Date;
 import javax.servlet.ServletException;
@@ -35,24 +39,17 @@ public class CustomerServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         Date date = new Date();
         String browser = request.getHeader("User-Agent");
-        try (PrintWriter out = response.getWriter()) {
-            PrintWriter PrintWriter; /*printf*/
-            PrintWriter = out.printf(
-                    "<!DOCTYPE html>\n"
-                            + "<html>\n"
-                            + "<head>\n"
-                            + "   <title>Servlet Demo: Hello, Servlet!</title>\n"
-                            + "</head>\n"
-                            + "<body>\n"
-                            + "   <h1>Hello, Servlet!</h1>\n"
-                            + "   <p>Today is %s.</p>\n"
-                            + "   <p>Your browser is %s.</p>\n"
-                            + "</body>\n"
-                            + "</html>",
-                    date.toString(), browser);
+        try {
+            PrintWriter out = response.getWriter();
+            InputStream is = getClass().getResourceAsStream("/websources/dashboard.html");
+            BufferedReader br = new BufferedReader(new InputStreamReader(is));
             
-            out.flush();
+            for(int i=0; i<297;i++){
+                out.println(br.readLine());
+            }
 
+        }catch(Exception e){
+            
         }
     }
 

@@ -240,3 +240,8 @@ ul.alert-dropdown {
     width:200px;
     height:350px;
 }
+
+.jumbotron { 
+    background-color: #333
+    color: #ffffff;
+}
