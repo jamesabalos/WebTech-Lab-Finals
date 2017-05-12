@@ -20,17 +20,26 @@ block content
 			span.glyphicon.glyphicon-chevron-right(aria-hidden='true')
 			span.sr-only Next
 	.container.text-center
-		h3 OUR SERVICES
 		br
 		.row
 			.col-sm-4
-				img.img-responsive(src='https://placehold.it/150x80?text=IMAGE', style='width:100%', alt='Image')
-				p Current Project
+				.well.status
+					i.iconStatus.fa.fa-check
+					.h2.homeWellTitle Total Number of Rendered Services
+					br
+					p.statusNumber
+						|50
 			.col-sm-4
-				img.img-responsive(src='https://placehold.it/150x80?text=IMAGE', style='width:100%', alt='Image')
-				p Project 2
+				.well.status
+					i.iconStatus.fa.fa-calendar
+					.h2.homeWellTitle Current Number of Bookings
+					br
+					p.statusNumber
+						|20
 			.col-sm-4
-				.well
-					p Some text..
-				.well
-					p Some text..
+				.well.status
+					i.iconStatus.fa.fa-question
+					.h2.homeWellTitle Number of Pending Requests
+					br
+					p.statusNumber
+						|3

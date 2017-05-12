@@ -53,3 +53,31 @@ a {
 	display: none; 
 }
 }
+
+.h2.homeWellTitle{
+	color: #297087;
+	text-transform: uppercase;
+	font-size: 1.5em;
+}
+
+.well.status{
+	height: 280px;
+}
+
+p.statusNumber{
+	font-size: 4.5em;
+	color: #f44242;
+}
+
+i.iconStatus{
+	background-color:  #297087;
+	color: #ffffff;
+	font-size: 40px;
+	width: 60px;
+	height: 60px;
+	border-radius: 50%;
+	text-align: center;
+	line-height: 60px;
+	margin: 10px 15px;
+	vertical-align: middle;
+}
