@@ -85,3 +85,9 @@ i.iconStatus{
 .aboutUs{
 	font-size: 1.3em;
 }
+
+.bookingHeader{
+	font-size: 3em;
+	color: #297087;
+	margin-bottom: 50px;
+}
