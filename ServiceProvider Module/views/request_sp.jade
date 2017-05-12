@@ -2,4 +2,37 @@ extends layout
 
 block content
 	.container
-		h1 REQUESTS
+		.row
+			.h1.bookingHeader.text-center PENDING SERVICE REQUEST/S
+		.col-sm-12
+			.row
+				.col-sm-2
+					.well
+						p.text-center
+							img.img-circle(src='./images/maleDashboard.png', height='90', width='90', alt='Avatar')
+				.col-sm-8
+					.well
+						p
+							i.fa.fa-user
+							|  Name:
+						p
+							i.fa.fa-building
+							|  Address:
+						p
+							i.fa.fa-envelope
+							|  Email:
+						p
+							i.fa.fa-phone
+							|   Phone Number:
+						p
+							i.fa.fa-calendar
+							|  Date Requested:
+						p
+							i.fa.fa-check-square-o
+							|   Service to be rendered:
+				.col-sm-2
+					button.btn.btn-success.btn-lg.btn-block(type='button') ACCEPT
+
+					button.btn.btn-danger.btn-lg.btn-block(type='button') DECLINE
+
+
