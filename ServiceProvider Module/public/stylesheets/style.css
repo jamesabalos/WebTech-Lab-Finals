@@ -7,6 +7,12 @@ a {
   color: #00B7FF;
 }
 
+.logo{
+	margin: 0;
+	height: 50px;
+	margin-top: -12px;
+}
+
 .jumbotron {
 	background: url(../images/jumbobg.jpg) no-repeat;
 	color: white;
