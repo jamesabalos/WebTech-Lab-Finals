@@ -21,9 +21,8 @@
 		        <ul class="nav navbar-nav">
 		 
 
-				    <li class="active">
-				        <!-- loginPage.php!-->
-				        <a href="ho_requests.php" class="dropdown-toggle" >HOME OWNER REQUEST</a>
+				   <li class="dropdown">
+				        <a href="ho_requests.php" class="dropdown-toggle" >HO REGISTRATION REQUEST</a>
 
 				    </li>
 
@@ -33,13 +32,13 @@
 				    </li>
 
 				    <li class="dropdown">
-				        <a href="sp_requests.php" class="dropdown-toggle" >SERVICE PROVIDER REQUEST</a>
+				        <a href="sp_requests.php" class="dropdown-toggle" >SP REGISTRATION REQUEST</a>
 				       
 
 				    </li>
 
 				    <li class="dropdown">
-				        <a href="serviceprovider.php" class="dropdown-toggle">SERVICE PROVIDER </a>
+				        <a href="serviceprovider.php" class="dropdown-toggle" >SERVICE PROVIDER </a>
 
 				    </li>
 
@@ -53,7 +52,7 @@
 
  <?php
           require ('../ConnectDB.php');
-			$sql = mysqli_query($con,"SELECT * FROM home_owner");
+			$sql = mysqli_query($con,"SELECT * FROM home_owner WHERE req_status='Pending'");
 				// echo($sql->num_rows);
 			// print_r(mysqli_fetch_assoc($sql)['first_name']);
 		if ($sql->num_rows > "0") {
@@ -95,7 +94,7 @@
 					        		<td>$gender</td>
 					        		<td>$cp_no</td>
 					        		<td>$tel_no</td>
-					        		<td><button  style='  background-color:green;' type='button'>Remove</button></td>
+					        		<td><button  style='background-color:green;' type='button' onclick='update'>Remove</button></td>
 
 
 

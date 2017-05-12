@@ -22,7 +22,7 @@
 		 
 
 				    <li class="dropdown">
-				        <a href="ho_requests.php" class="dropdown-toggle" >HOME OWNER REQUEST</a>
+				        <a href="ho_requests.php" class="dropdown-toggle" >HO REGISTRATION REQUEST</a>
 
 				    </li>
 
@@ -32,7 +32,7 @@
 				    </li>
 
 				    <li class="dropdown">
-				        <a href="sp_requests.php" class="dropdown-toggle" >SERVICE PROVIDER REQUEST</a>
+				        <a href="sp_requests.php" class="dropdown-toggle" >SP REGISTRATION REQUEST</a>
 				       
 
 				    </li>

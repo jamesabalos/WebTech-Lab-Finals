@@ -32,7 +32,7 @@ $hash_password = $result['password'];
 				$_SESSION['last_name'] = $result['last_name'];
 				$_SESSION['first_name'] = $result['first_name'];
 				$_SESSION['email'] = $result['email'];
-				$_SESSION['loggesd_in'] = true;
+				
 
 				header("location: ../profile.php");
 			}else{
