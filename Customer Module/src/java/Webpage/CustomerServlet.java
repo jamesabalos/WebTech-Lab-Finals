@@ -11,6 +11,11 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.Date;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -41,13 +46,51 @@ public class CustomerServlet extends HttpServlet {
         String browser = request.getHeader("User-Agent");
         try {
             PrintWriter out = response.getWriter();
-            InputStream is = getClass().getResourceAsStream("/websources/dashboard.html");
+            InputStream is = getClass().getResourceAsStream("dashboard.txt");
             BufferedReader br = new BufferedReader(new InputStreamReader(is));
             
-            for(int i=0; i<297;i++){
+            for(int i=0; i<60;i++){
                 out.println(br.readLine());
             }
+            /*br = new BufferedReader(new InputStreamReader(no));
+            
+            for(int i=0; i<6;i++){
+                out.println(br.readLine());
+            }*/
+            try{
+                Class.forName("com.mysql.jdbc.Driver");
+                String connUrl = "jdbc:mysql://localhost:3306/webtek?user=root&password=";
+                Connection conn = DriverManager.getConnection(connUrl);
+                PreparedStatement ps;
+                ResultSet rs;
 
+                String query = "SELECT company_name, reqstatus FROM request JOIN service_provider JOIN USING(spid) WHERE reqstatus IN('Accepted', 'Rejected') ORDER BY reqdate";
+                ps = conn.prepareStatement(query);
+                rs = ps.executeQuery();
+
+                if(rs.first()){
+                    do{
+                        if(rs.getString(2).equalsIgnoreCase("accepted")){
+                            out.println("<li><a href='#'>" + rs.getString(1) + "<span class='label label-success'>Accepted</span></a></li>");
+                        }else{
+                            out.println("<li><a href='#'>" + rs.getString(1) + "<span class='label label-danger'>Rejected</span></a></li>");
+                        }
+                    }while(rs.next());
+                }else{
+                    out.println("<li><a href='#'>No notification.</a></li>");
+                }
+            }catch(Exception ex){
+                
+            }
+            
+            out.println("</ul>\n"
+                        + "</li>\n"
+                        + "<li class=\"dropdown\">\n"
+                        + "<a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\"><i class=\"fa fa-user\"></i>get data from session<b class=\"caret\"></b></a>");
+ 
+            for(int i=61; i<350;i++){
+                out.println(br.readLine());
+            }
         }catch(Exception e){
             
         }
