@@ -1,10 +1,10 @@
 
 <html>
 <head>
-    <link href="index.css" rel="stylesheet" type="text/css">
+    <link href="../css/index.css" rel="stylesheet" type="text/css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> 
    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script> 
-       <link href="bootstrap.css" rel="stylesheet" type="text/css">
+       <link href="../css/bootstrap.css" rel="stylesheet" type="text/css">
 </head>
 
 
@@ -51,18 +51,15 @@
     </nav>
 
  <?php
-          require ('ConnectDB.php');
+          require ('../ConnectDB.php');
 			$sql = mysqli_query($con,"SELECT * FROM service_provider");
-				// echo($sql->num_rows);
-			// print_r(mysqli_fetch_assoc($sql)['first_name']);
+
 		if ($sql->num_rows > "0") {
 			    // output data of each row
 			 echo "<table border='3' class='rwd-table'>";
 					   			echo"<tr>
-									<th>Last Name</th>
-					                <th>First Name</th>
+									<th>Name</th>
 					                <th>Company Name</th>
-					                <th>Password</th>
 									<th>Email</th>
 									<th>Birthdate</th>
 									<th>Address</th>
@@ -72,27 +69,25 @@
 									<th>ACTION</th>
 
 								</tr>";
+
 			   	 while( $rows = mysqli_fetch_assoc($sql) ){
 				        $first_name = $rows['first_name'];
 				        $last_name = $rows['last_name'];
 				        $company_name = $rows['company_name'];
 				        $email = $rows['email'];
-				        $password = $rows['password'];
 				        $birthdate = $rows['birthdate'];
 				        $address = $rows['address'];
 				        $gender = $rows['gender'];
 				        $cp_no = $rows['cp_no'];
 				        $tel_no = $rows['tel_no'];
-				    //     echo $first_name . " " . $last_name  ."<br>";
+				    
 			   		 	
 					   $row = $sql->num_rows; //Dynamic number for rows
 					   $col = 12; // Dynamic number for columns
 					   
 					     echo "<tr>
-							       	<td>$first_name</td>
-					        		<td>$last_name</td>
+							       	<td>$first_name $last_name</td>
 					        		<td>$company_name</td>
-					        		<td>$password</td>
 					        		<td>$email</td>
 					        		<td>$birthdate</td>
 					        		<td>$address</td>
@@ -101,9 +96,7 @@
 					        		<td>$tel_no</td>
 
 					        	</tr>";
-					      // }
-					    
-					  // }
+
 
 				}
 		  	echo "</table>";
@@ -112,7 +105,20 @@
 
 
 		} else {
-			    echo "0 results";
+			 	echo"<table border='3' class='rwd-table'>
+					   			<tr>
+									<th>Name</th>
+									<th>Email</th>
+									<th>Birthdate</th>
+									<th>Address</th>
+									<th>Second Address</th>
+									<th>Gender</th>
+									<th>Cellphone Number</th>
+									<th>Telephone Number</th>
+									<th>ACTION</th>
+
+								</tr>
+					</table>";
 			}
 			
 			exit();

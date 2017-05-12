@@ -10,7 +10,7 @@ if( !isset($_POST['email']) ){
 
 
 $email = $_POST['email'];
-$checkEmailResult = mysqli_query($con,"SELECT * FROM service_provider WHERE email='$email'");
+$checkEmailResult = mysqli_query($con,"SELECT * FROM service_provider WHERE email='$email'	and req_status = 'active'");
 $result = $checkEmailResult->fetch_assoc();
 $hash_password = $result['password'];
  $user_has_password = md5($_POST['password']);

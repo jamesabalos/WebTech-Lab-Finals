@@ -3,9 +3,9 @@
 // require_once("../ConnectDB.php");
 
 
-	// $_SESSION['last_name'] = $_POST['last_name'];
-	// $_SESSION['first_name'] = $_POST['first_name'];
-	// $_SESSION['email'] = $_POST['email'];
+	$_SESSION['last_name'] = $_POST['last_name'];
+	$_SESSION['first_name'] = $_POST['first_name'];
+	$_SESSION['email'] = $_POST['email'];
 	
  $lname = ($_POST['last_name']);
  $fname = ($_POST['first_name']);

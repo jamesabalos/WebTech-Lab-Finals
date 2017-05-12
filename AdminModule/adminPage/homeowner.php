@@ -1,10 +1,10 @@
 
 <html>
 <head>
-    <link href="index.css" rel="stylesheet" type="text/css">
+    <link href="../css/index.css" rel="stylesheet" type="text/css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> 
    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script> 
-       <link href="bootstrap.css" rel="stylesheet" type="text/css">
+       <link href="../css/bootstrap.css" rel="stylesheet" type="text/css">
 </head>
 
 
@@ -52,7 +52,7 @@
 
 
  <?php
-          require ('ConnectDB.php');
+          require ('../ConnectDB.php');
 			$sql = mysqli_query($con,"SELECT * FROM home_owner");
 				// echo($sql->num_rows);
 			// print_r(mysqli_fetch_assoc($sql)['first_name']);
@@ -60,10 +60,8 @@
 			    // output data of each row
 			 echo "<table border='3' class='rwd-table'>";
 					   			echo"<tr>
-									<th>Last Name</th>
-					                <th>First Name</th>
+									<th>Name</th>
 									<th>Email</th>
-					                <th>Password</th>
 									<th>Birthdate</th>
 									<th>Address</th>
 									<th>Second Address</th>
@@ -76,7 +74,6 @@
 			   	 while( $rows = mysqli_fetch_assoc($sql) ){
 				        $first_name = $rows['first_name'];
 				        $last_name = $rows['last_name'];
-				        $password = $rows['password'];
 				        $email = $rows['email'];
 				        $birthdate = $rows['birthdate'];
 				        $address = $rows['address'];
@@ -90,10 +87,8 @@
 					   $col = 12; // Dynamic number for columns
 					   
 					     echo "<tr>
-					        		<td>$first_name</td>
-					        		<td>$last_name</td>
-					        		<td>$password</td>
-					        		<td>$email</td>
+					        		<td>$first_name $last_name</td>
+					        		<td>$email</td>	
 					        		<td>$birthdate</td>
 					        		<td>$address</td>
 					        		<td>$address2</td>
@@ -119,7 +114,6 @@
 									<th>Last Name</th>
 					                <th>First Name</th>
 									<th>Email</th>
-					                <th>Password</th>
 									<th>Birthdate</th>
 									<th>Address</th>
 									<th>Second Address</th>
