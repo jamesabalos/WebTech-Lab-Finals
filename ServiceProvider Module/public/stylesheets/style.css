@@ -13,11 +13,6 @@ a {
 	margin-top: -12px;
 }
 
-.jumbotron {
-	background: url(../images/jumbobg.jpg) no-repeat;
-	color: white;
-}
-
 .container.profile{
 	margin-top: 15px;
 	margin-bottom: 15px;
@@ -26,6 +21,11 @@ a {
 
 .dashboardHeading{
 	color: #10662f;
+}
+
+.titleHome{
+	font-size: 3em;
+	color: #237d93;
 }
 
 .title{

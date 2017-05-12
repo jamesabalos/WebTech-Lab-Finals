@@ -46,7 +46,13 @@ block content
 										h4.modal-title Service Done
 									.modal-body
 										.form-group
-											label(for='addService') How much is the total cost?
+											label(for='renderedDate') Date of Service Finished
+											input#addService.form-control(type='text')
+
+											label(for='renderedDate') Time of Service Finished
+											input#addService.form-control(type='text')
+
+											label(for='serviceCost') How much is the total cost?
 											input#addService.form-control(type='text')
 									.modal-footer
 										button.btn.btn-success(type='button') Save
