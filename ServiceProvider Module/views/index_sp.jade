@@ -23,26 +23,28 @@ block content
 		br
 		.row.text-center
 			.col-sm-4
-				.well.status
+				.well.status.hvr-border-fade
 					i.iconStatus.fa.fa-check
-					.h2.homeWellTitle Total Number of Rendered Services
+					h2.homeWellTitle Total Number of Rendered Services
 					br
 					p.statusNumber
 						|50
 			.col-sm-4
-				.well.status
-					i.iconStatus.fa.fa-calendar
-					.h2.homeWellTitle Current Number of Bookings
-					br
-					p.statusNumber
-						|20
+				.well.status.hvr-border-fade
+					a.home(href='/booking')
+						i.iconStatus.fa.fa-calendar
+						h2.homeWellTitle Current Number of Bookings
+						br
+						p.statusNumber
+							|20
 			.col-sm-4
-				.well.status
-					i.iconStatus.fa.fa-question
-					.h2.homeWellTitle Number of Pending Requests
-					br
-					p.statusNumber
-						|3
+				.well.status.hvr-border-fade
+					a.home(href='/request')
+						i.iconStatus.fa.fa-question
+						h2.homeWellTitle Number of Pending Requests
+						br
+						p.statusNumber
+							|3
 
 		.row
 			h2.text-center.titleHome ABOUT US
