@@ -17,7 +17,8 @@
 
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
 </head>
-<body>
+
+    <body>
 
     <!-- Navigation-->
       <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -34,15 +35,15 @@
             <ul class="nav navbar-nav navbar-right">
               <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="fa fa-sign-in"></span> LOGIN </a>
                 <ul class="dropdown-menu">
-                  <li><button class="btn btn-link btn-sm btn-block" type="button" data-toggle="modal" data-target="#HOlogin">Service Provider Login</button></li>
-                  <li><button class="btn btn-link btn-sm btn-block" type="button" data-toggle="modal" data-target="#HOlogin">Customer Login</button></li>
+                    <li><button class="btn btn btn-secondary btn-sm btn-block" type="button" data-toggle="modal" data-target="#HOlogin">Customer Login</button></li>
+                    <li><button class="btn btn btn-secondary btn-sm btn-block" type="button" data-toggle="modal" data-target="#SPlogin">Service Provider Login</button></li>
                 </ul>
               </li>
 
               <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="fa fa-user"></span>  REGISTER</a>
                 <ul class="dropdown-menu">
-                  <li><a href="SPLogin/registrationSP.php">Service Provider Sign Up</a></li>
-                  <li><a href="HOLogin/registration.php">Customer Sign Up</a></li>
+                    <li><button class="btn btn btn-secondary btn-sm btn-block" type="button" data-toggle="modal" data-target="#HORegistration">Customer Signup</button></li>
+                    <li><button class="btn btn btn-secondary btn-sm btn-block" type="button" data-toggle="modal" data-target="#SPRegistration">Service Provider Signup</button></li>
                 </ul>
               </li>
 
@@ -57,13 +58,11 @@
           <div class="modal-content">
             <div class="modal-header">
               <button class="close" type="button" data-dismiss="modal">×</button>
-              <h4 class="modal-title">Welcome Back!</h4>
+              <h4 class="modal-title">Welcome Customer!</h4>
             </div>
             <div class="modal-body">
               <form class="form" action="HOLogin/login.php" method="POST" enctype="multipart/form-data" autocomplete="off">
-                <label for="email">Email</label>
                 <input class="form-control" type="email" placeholder="Email" name="email" required/>
-                <label for="password">Password</label>
                 <input class="form-control" type="password" placeholder="Password" name="password" required/>
 
                 <p><a href="forgot.php">Forgot Password?</a></p>
@@ -85,14 +84,94 @@
             </div>
             <div class="modal-body">
               <form class="form" action="SPLogin/loginSP.php" method="POST" enctype="multipart/form-data" autocomplete="off">
-                <label for="email">Email</label>
                 <input class="form-control" type="email" placeholder="Email" name="email" required/>
-                <label for="password">Password</label>
                 <input class="form-control" type="password" placeholder="Password" name="password" required/>
 
                 <p><a href="forgot.php">Forgot Password?</a></p>
 
                 <input type="submit" value="Login" name="login" class="btn btn-block btn-primary" />
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="HORegistration" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button class="close" type="button" data-dismiss="modal">×</button>
+              <h4 class="modal-title">CREATE YOUR FREE ACCOUNT NOW</h4>
+            </div>
+            <div class="modal-body">
+              <form class="form" action="HOLogin/registration.php" method="POST" enctype="multipart/form-data" autocomplete="off">
+                <input class="form-control" type="text" placeholder="Last Name" name="last_name" required />
+                <br>
+                <input class="form-control" type="text" placeholder="First Name" name="first_name" required />
+                <br>
+                <input class="form-control" type="email" placeholder="Email" name="email" required />
+                <br>
+                <input class="form-control" type="password" placeholder="Password" name="password" required />
+                <br>
+                <input class="form-control" type="date" placeholder="Birthdate " name="birthdate" required />
+                <br>
+                <input class="form-control" type="text" placeholder="Address" name="address" required />
+                <br>
+                <input class="form-control" type="text" placeholder="Phone Number." name="cpno" required />
+                <br>
+                <input class="form-control" type="text" placeholder="Telephone Number" name="tel" />
+                <br>
+                <input type="radio" name="gender" value="m" required/> Male<span></span>
+                <input type="radio" name="gender" value="f" required/> Female
+                <br>
+                <p>
+                    <a href="forgot.php">Forgot Password?</a>
+                </p>
+
+                <input type="submit" value="Register" name="login" class="btn btn-block btn-primary" />
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="SPRegistration" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button class="close" type="button" data-dismiss="modal">×</button>
+              <h4 class="modal-title">SIGN UP FOR A SERVICE PROVIDER ACCOUNT</h4>
+            </div>
+            <div class="modal-body">
+              <form class="form" action="SPLogin/registration.php" method="POST" enctype="multipart/form-data" autocomplete="off">
+                <input class="form-control" type="text" placeholder="Last Name" name="last_name" required />
+                <br>
+                <input class="form-control" type="text" placeholder="First Name" name="first_name" required />
+                <br>
+                <input class="form-control" type="text" placeholder="Company Name" name="first_name" required />
+                <br>
+                <input class="form-control" type="email" placeholder="Email" name="email" required />
+                <br>
+                <input class="form-control" type="password" placeholder="Password" name="password" required />
+                <br>
+                <input class="form-control" type="date" placeholder="Birthdate " name="birthdate" required />
+                <br>
+                <input class="form-control" type="text" placeholder="Address" name="address" required />
+                <br>
+                <input class="form-control" type="text" placeholder="Phone Number." name="cpno" required />
+                <br>
+                <input class="form-control" type="text" placeholder="Telephone Number" name="tel" />
+                <br>
+                <input type="radio" name="gender" value="m" required/> Male<span></span>
+                <input type="radio" name="gender" value="f" required/> Female
+                <br>
+                <p>
+                    <a href="forgot.php">Forgot Password?</a>
+                </p>
+
+                <input type="submit" value="Register" name="login" class="btn btn-block btn-primary" />
               </form>
             </div>
           </div>
