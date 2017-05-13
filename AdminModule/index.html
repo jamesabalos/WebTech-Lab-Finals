@@ -1,92 +1,128 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
+    <title>RenderIt</title>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="icon" href="./public/images/home.png">
+
     <link href="css/index.css" rel="stylesheet" type="text/css">
-    <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> 
-   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script> 
+    <link rel="stylesheet" type="text/css" href="./public/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="./public/css/bootstrap-theme.css">
+    <link rel="stylesheet" type="text/css" href="./public/css/footer.css">
+    <link rel="stylesheet" type="text/css" href="./public/css/style.css">
 
-
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
 </head>
 <body>
 
-    <nav class="navbar navbar-inverse">
+    <!-- Navigation-->
+      <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container-fluid">
-        
-        <div class="navbar-header">
-            <a href="index.html" class="navbar-brand">CALLNARKI</a>
+          <div class="navbar-header">
+            <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#myNavbar"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a class="navbar-brand" href="/"><img class="logo" src="./public/images/Logo1.png"/></a>
+          </div>
+          <div class="collapse navbar-collapse" id="myNavbar">
+
+            <ul class="nav navbar-nav">
+              <li><a href="index.html">Home</a></li>
+            </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+              <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">LOGIN<span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="#SPlogin">Service Provider Login</a></li>
+                  <li><a href="#HOlogin">Customer Login</a></li>
+                </ul>
+              </li>
+
+              <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">LOGIN<span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="SPLogin/registrationSP.php">Service Provider Sign Up</a></li>
+                  <li><a href="HOLogin/registration.php">Customer Sign Up</a></li>
+                </ul>
+              </li>
+
+            </ul>
+          </div>
         </div>
-        
+      </nav>
+
+    <div id="HOlogin" class="overlay">
+        <div class="popup1">
+            <a class="close" href="#">&times;</a>
+            <div class="login" id="login">
+
+              <h1>Welcome Home Owner!</h1>
+              <form class="form" action="HOLogin/login.php" method="POST" enctype="multipart/form-data" autocomplete="off">
+                <div class="alert alert-error"></div>
+                <input type="email" placeholder="Email" name="email" required />
+                <input type="password" placeholder="Password" name="password" required />
+                <p><a href="forgot.php">Forgot Password</a></p>
+                <input type="submit" value="Login" name="login" class="btn btn-block btn-primary" />
+              </form>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="SPlogin" class="overlay">
+        <div class="popup1">
+            <a class="close" href="#">&times;</a>
+            <div class="login" id="login">
+
+              <h1>Welcome Service Provider!</h1>
+              <form class="form" action="SPLogin/loginSP.php" method="POST" enctype="multipart/form-data" autocomplete="off">
+                <div class="alert alert-error"></div>
+                <input type="email" placeholder="Email" name="email" required />
+                <input type="password" placeholder="Password" name="password" required />
+                <p><a href="forgot.php">Forgot Password</a></p>
+                <input type="submit" value="Login" name="login" class="btn btn-block btn-primary" />
+              </form>
+            </div>
+        </div>
+    </div>
+
+
+
+    <footer class="footer-distributed">
+        <div class="footer-left">
+        <h3>Company Name</h3>
+        <p class="footer-links">
+            <a href="">Home |</a>
+            <a href="">Booking |</a>
+            <a href="">Requests |</a>
+            <a href="">My Profile |</a>
+        </p>
+        <p class="footer-company-name">Copyright 2017</p>
+        </div>
+
+        <div class="footer-center">
+        <div>   
+            <i class="fa fa-map-marker"></i>
+            <p>Baguio, Philippines</p>
+        </div>
         <div>
-        <ul class="nav navbar-nav">
-    <li ><a href="index.html">Home</a></li>
-
-    <li class="dropdown">
-        <!-- loginPage.php!-->
-        <a  class="dropdown-toggle" data-toggle="dropdown">Login<span class="caret"></span></a>
-        <ul class="dropdown-menu">
-            <li><a href="#SPlogin" >Service Provider Login</a></li>
-            <li><a href="#HOlogin">HomeOwner Login</a></li>
-        </ul>
-    </li>
-    <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Sign Up<span class="caret"></span></a>
-        <ul class="dropdown-menu">
-            <li><a href="SPLogin/registrationSP.php">Service Provider Sign up</a></li>
-            <li><a href="HOLogin/registration.php">HomeOwner Sign up</a></li>
-        </ul>
-    </li>
-
-
-    </ul>
-    </div>
+            <i class="fa fa-phone"></i>
+            <p>09253695283</p>
+        </div>
+        <div>
+            <i class="fa fa-envelope"></i>
+            <p><a href="mailto:support@company.com">support@company.com</a></p>
+        </div>
         </div>
 
-
-
-        
-    </nav>
-<div id="HOlogin" class="overlay">
-    <div class="popup1">
-        <a class="close" href="#">&times;</a>
-        <div class="login" id="login">
-
-          <h1>Welcome Home Owner!</h1>
-          <form class="form" action="HOLogin/login.php" method="POST" enctype="multipart/form-data" autocomplete="off">
-            <div class="alert alert-error"></div>
-            <input type="email" placeholder="Email" name="email" required />
-            <input type="password" placeholder="Password" name="password" required />
-            <p><a href="forgot.php">Forgot Password</a></p>
-            <input type="submit" value="Login" name="login" class="btn btn-block btn-primary" />
-          </form>
+        <div class="footer-right">
+            <p class="footer-company-about"><span>About RenderIt!</span>          
+            RenderIt is a company that...</p>
         </div>
-    </div>
-</div>
+    </footer>
 
-
-<div id="SPlogin" class="overlay">
-    <div class="popup1">
-        <a class="close" href="#">&times;</a>
-        <div class="login" id="login">
-
-          <h1>Welcome Service Provider!</h1>
-          <form class="form" action="SPLogin/loginSP.php" method="POST" enctype="multipart/form-data" autocomplete="off">
-            <div class="alert alert-error"></div>
-            <input type="email" placeholder="Email" name="email" required />
-            <input type="password" placeholder="Password" name="password" required />
-            <p><a href="forgot.php">Forgot Password</a></p>
-            <input type="submit" value="Login" name="login" class="btn btn-block btn-primary" />
-          </form>
-        </div>
-    </div>
-</div>
-
-
-
-
-
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> 
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 
 
     </body>

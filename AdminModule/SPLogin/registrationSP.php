@@ -7,7 +7,7 @@
 <html>
 <head>
   <title>SP Registration</title>
-  <link rel="stylesheet" href="../form.css" type="text/css">
+  <link rel="stylesheet" href="../css/form.css" type="text/css">
   <meta charset="UTF-8">
 
 </head>
