@@ -32,14 +32,14 @@
             </ul>
 
             <ul class="nav navbar-nav navbar-right">
-              <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">LOGIN<span class="caret"></span></a>
+              <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="fa fa-sign-in"></span> LOGIN </a>
                 <ul class="dropdown-menu">
-                  <li><a href="#SPlogin">Service Provider Login</a></li>
-                  <li><a href="#HOlogin">Customer Login</a></li>
+                  <li><button class="btn btn-link btn-sm btn-block" type="button" data-toggle="modal" data-target="#HOlogin">Service Provider Login</button></li>
+                  <li><button class="btn btn-link btn-sm btn-block" type="button" data-toggle="modal" data-target="#HOlogin">Customer Login</button></li>
                 </ul>
               </li>
 
-              <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">REGISTER<span class="caret"></span></a>
+              <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="fa fa-user"></span>  REGISTER</a>
                 <ul class="dropdown-menu">
                   <li><a href="SPLogin/registrationSP.php">Service Provider Sign Up</a></li>
                   <li><a href="HOLogin/registration.php">Customer Sign Up</a></li>
@@ -51,42 +51,53 @@
         </div>
       </nav>
 
-    <div id="HOlogin" class="overlay">
-        <div class="popup1">
-            <a class="close" href="#">&times;</a>
-            <div class="login" id="login">
-
-              <h1>Welcome Home Owner!</h1>
+      <div id="HOlogin" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button class="close" type="button" data-dismiss="modal">×</button>
+              <h4 class="modal-title">Welcome Back!</h4>
+            </div>
+            <div class="modal-body">
               <form class="form" action="HOLogin/login.php" method="POST" enctype="multipart/form-data" autocomplete="off">
-                <div class="alert alert-error"></div>
-                <input type="email" placeholder="Email" name="email" required />
-                <input type="password" placeholder="Password" name="password" required />
-                <p><a href="forgot.php">Forgot Password</a></p>
+                <label for="email">Email</label>
+                <input class="form-control" type="email" placeholder="Email" name="email" required/>
+                <label for="password">Password</label>
+                <input class="form-control" type="password" placeholder="Password" name="password" required/>
+
+                <p><a href="forgot.php">Forgot Password?</a></p>
+
                 <input type="submit" value="Login" name="login" class="btn btn-block btn-primary" />
               </form>
             </div>
+          </div>
         </div>
-    </div>
+      </div>
 
-
-    <div id="SPlogin" class="overlay">
-        <div class="popup1">
-            <a class="close" href="#">&times;</a>
-            <div class="login" id="login">
-
-              <h1>Welcome Service Provider!</h1>
+      <div id="SPlogin" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button class="close" type="button" data-dismiss="modal">×</button>
+              <h4 class="modal-title">Welcome Back Service Provider!</h4>
+            </div>
+            <div class="modal-body">
               <form class="form" action="SPLogin/loginSP.php" method="POST" enctype="multipart/form-data" autocomplete="off">
-                <div class="alert alert-error"></div>
-                <input type="email" placeholder="Email" name="email" required />
-                <input type="password" placeholder="Password" name="password" required />
-                <p><a href="forgot.php">Forgot Password</a></p>
+                <label for="email">Email</label>
+                <input class="form-control" type="email" placeholder="Email" name="email" required/>
+                <label for="password">Password</label>
+                <input class="form-control" type="password" placeholder="Password" name="password" required/>
+
+                <p><a href="forgot.php">Forgot Password?</a></p>
+
                 <input type="submit" value="Login" name="login" class="btn btn-block btn-primary" />
               </form>
             </div>
+          </div>
         </div>
-    </div>
-
-
+      </div>
 
     <footer class="footer-distributed">
         <div class="footer-left">
