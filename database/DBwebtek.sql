@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 12, 2017 at 06:47 PM
+-- Generation Time: May 13, 2017 at 02:43 PM
 -- Server version: 5.7.14
 -- PHP Version: 5.6.25
 
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `webtekfinals`
+-- Database: `webtek`
 --
 
 -- --------------------------------------------------------
@@ -63,20 +63,13 @@ CREATE TABLE `home_owner` (
   `first_name` varchar(45) NOT NULL,
   `password` varchar(100) NOT NULL,
   `email` varchar(30) NOT NULL,
-  `birthdate` int(35) NOT NULL,
+  `birthdate` date NOT NULL,
   `address` varchar(50) NOT NULL,
   `gender` enum('F','M') NOT NULL,
-  `cp_no` int(20) NOT NULL,
-  `tel_no` int(20) NOT NULL,
-  `req_status` enum('Acccepted','Rejected','Pending') NOT NULL DEFAULT 'Pending'
+  `cp_no` varchar(45) NOT NULL,
+  `tel_no` varchar(45) NOT NULL,
+  `req_status` enum('Accepted','Rejected','Pending') CHARACTER SET armscii8 COLLATE armscii8_bin NOT NULL DEFAULT 'Pending'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `home_owner`
---
-
-INSERT INTO `home_owner` (`hoid`, `last_name`, `first_name`, `password`, `email`, `birthdate`, `address`, `gender`, `cp_no`, `tel_no`, `req_status`) VALUES
-(1, 'manzon', 'jake', '1200cf8ad328a60559cf5e7c5f46ee6d', 'jake@gmail.com', 109413, 'fasfaf', 'M', 312131, 133132, 'Pending');
 
 -- --------------------------------------------------------
 
@@ -110,18 +103,13 @@ CREATE TABLE `payment` (
 CREATE TABLE `request` (
   `reqid` int(10) NOT NULL,
   `reqdate` date NOT NULL,
+  `req_time` time NOT NULL,
   `startdate` date NOT NULL,
+  `start_time` time NOT NULL,
   `reqstatus` enum('Accepted','Pending','Rejected') NOT NULL,
   `hoid` int(10) NOT NULL,
   `spid` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `request`
---
-
-INSERT INTO `request` (`reqid`, `reqdate`, `startdate`, `reqstatus`, `hoid`, `spid`) VALUES
-(1, '2017-02-12', '2017-02-25', 'Accepted', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -148,20 +136,13 @@ CREATE TABLE `service_provider` (
   `last_name` varchar(45) NOT NULL,
   `first_name` varchar(45) NOT NULL,
   `company_name` varchar(45) NOT NULL,
-  `birthdate` varchar(45) NOT NULL,
+  `birthdate` date NOT NULL,
   `address` varchar(45) NOT NULL,
   `cp_no` int(20) NOT NULL,
   `tel_no` int(20) DEFAULT NULL,
   `req_status` enum('Accepted','Rejected','Pending') NOT NULL DEFAULT 'Pending',
   `status` enum('active','inactive') DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `service_provider`
---
-
-INSERT INTO `service_provider` (`spid`, `email`, `gender`, `password`, `last_name`, `first_name`, `company_name`, `birthdate`, `address`, `cp_no`, `tel_no`, `req_status`, `status`) VALUES
-(1, 'samsonsean@gmail.com', 'M', '9b938710211168f2902f9ed4357cd05c', 'Samson', 'Sean', 'Samson Corporation', 'feb20', 'carmen', 123, 123, 'Pending', 'active');
 
 -- --------------------------------------------------------
 
@@ -173,13 +154,6 @@ CREATE TABLE `sp_service` (
   `servid` int(10) NOT NULL,
   `spid` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `sp_service`
---
-
-INSERT INTO `sp_service` (`servid`, `spid`) VALUES
-(1, 1);
 
 -- --------------------------------------------------------
 
@@ -284,6 +258,11 @@ ALTER TABLE `visit`
 --
 ALTER TABLE `booking`
   MODIFY `bookid` int(10) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `convo`
+--
+ALTER TABLE `convo`
+  MODIFY `coid` int(10) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `home_owner`
 --
