@@ -5,6 +5,7 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> 
    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script> 
        <link href="../css/bootstrap.css" rel="stylesheet" type="text/css">
+       <script src="updateRequests.js"></script>
 </head>
 
 
@@ -63,7 +64,6 @@
 					<th>Email</th>
 					<th>Birthdate</th>
 					<th>Address</th>
-					<th>Second Address</th>
 					<th>Gender</th>
 					<th>Cellphone Number</th>
 					<th>Telephone Number</th>
@@ -76,7 +76,6 @@
 				        $email = $rows['email'];
 				        $birthdate = $rows['birthdate'];
 				        $address = $rows['address'];
-				        $address2 = $rows['address2'];
 				        $gender = $rows['gender'];
 				        $cp_no = $rows['cp_no'];
 				        $tel_no = $rows['tel_no'];
@@ -90,11 +89,10 @@
 					        		<td>$email</td>
 					        		<td>$birthdate</td>
 					        		<td>$address</td>
-					        		<td>$address2</td>
 					        		<td>$gender</td>
 					        		<td>$cp_no</td>
 					        		<td>$tel_no</td>
-					        		<td><button  style='background-color:green;' type='button' onclick='update'>Remove</button></td>
+					        		<td><button  style='background-color:green;' type='button' onclick='update_HO_register_rq(this)'>Remove</button></td>
 
 
 
@@ -134,5 +132,6 @@
 
 
 </body>
+
 </html>
          

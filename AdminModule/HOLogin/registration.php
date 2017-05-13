@@ -7,7 +7,7 @@
 <html>
 <head>
   <title>Registration</title>
-  <link rel="stylesheet" href="../form.css" type="text/css">
+  <link rel="stylesheet" href="../css/form.css" type="text/css">
   <meta charset="UTF-8">
 
 </head>
@@ -44,7 +44,6 @@
             <input type="password" placeholder="Password" name="password" required />
             <input type="text" placeholder="birthdate" name="birthdate" required />
             <input type="text" placeholder="address" name="address" required />
-            <input type="text" placeholder="address2" name="address2" />
             <input type="text" placeholder="cp NO." name="cpno" required />
             <input type="text" placeholder="tel no" name="tel" />
             <input type="radio" name="gender" value="m" required/> Male<span></span>

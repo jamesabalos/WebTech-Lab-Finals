@@ -5,7 +5,7 @@ session_start();
 <html>
 <head>
 	<title>Success</title>
-	  <link rel="stylesheet" href="form.css">
+	  <link rel="stylesheet" href="css/form.css">
 	  <link rel="stylesheet" href="bootsrap.css">
 
 </head>

@@ -13,7 +13,6 @@
  $password = md5($_POST['password']);
  $bdate = ($_POST['birthdate']);
  $address = ($_POST['address']);
- $address2 = ($_POST['address2']);
  $gender = $_POST['gender'];
  $cp = ($_POST['cpno']);
  $tel = ($_POST['tel']);
@@ -25,8 +24,8 @@
  	header("location: ../error.php");
 
  }else{
-	$sql =  "INSERT INTO `home_owner` (last_name,first_name,password, email, birthdate, address,address2,gender,cp_no,tel_no)
-          VALUES  ('$lname','$fname','$password','$email','$bdate','$address','$address2','$gender','$cp','$tel')";
+	$sql =  "INSERT INTO `home_owner` (last_name,first_name,password, email, birthdate, address,gender,cp_no,tel_no)
+          VALUES  ('$lname','$fname','$password','$email','$bdate','$address','$gender','$cp','$tel')";
  	
 	if(mysqli_query($con, $sql)){
 	  //echo "successful";
