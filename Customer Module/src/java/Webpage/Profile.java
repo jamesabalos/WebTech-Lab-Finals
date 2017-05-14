@@ -15,7 +15,6 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -24,8 +23,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Windows10
  */
-@WebServlet(name = "Dashboard", urlPatterns = {"/Dashboard"})
-public class Dashboard extends HttpServlet {
+public class Profile extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -43,10 +41,10 @@ public class Dashboard extends HttpServlet {
         String home_owner = "";
         try {
             PrintWriter out = response.getWriter();
-            InputStream is = getClass().getResourceAsStream("dashboard.txt");
+            InputStream is = getClass().getResourceAsStream("profile.txt");
             BufferedReader br = new BufferedReader(new InputStreamReader(is));
             
-            for(int i=0; i<60;i++){
+            for(int i=0; i<57;i++){
                 out.println(br.readLine());
             }
             
@@ -84,96 +82,36 @@ public class Dashboard extends HttpServlet {
                         + "<li class=\"dropdown\">\n"
                         + "<a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\"><i class=\"fa fa-user\"></i>" + home_owner + "<b class=\"caret\"></b></a>");
  
-            for(int i=61; i<125;i++){
+            for(int i=58; i<119;i++){
                 out.println(br.readLine());
             }
             
-                String query2 = "SELECT CONCAT(service_provider.first_name, ' ', service_provider.last_name), date_rendered, time_rendered FROM service_provider JOIN request USING(spid) JOIN booking USING(reqid) JOIN home_owner USING(hoid) WHERE date_rendered IS NOT NULL AND home_owner.email ='" + session_email + "'";//incomplete
+                String query2 = "SELECT CONCAT(first_name, ' ', last_name) FROM home_owner WHERE home_owner.email ='" + session_email + "'";//incomplete
                 ps = conn.prepareStatement(query2);
                 rs = ps.executeQuery();
                 
-                if(rs.first()){
-                    do{
-                        out.println("<a href=\"\" class=\"list-group-item\">\n" +
-                                    "<span class=\"badge\">"+ rs.getString(2) + " " + rs.getString(3) +"</span>\n" +
-                                    "<i class=\"fa fa-fw fa-calendar\"></i>" + rs.getString(1) + "\n" +
-                                    "</a>");
-                        
-                    }while(rs.next());
-                }else{
-                    out.println("<div class='text-left'><p>No history found.</p></div>");
+                while(rs.next()){
+                    out.println("<h2>" + rs.getString(1) + "</h2>");
                 }
             
-            for(int i=126; i<137;i++){
+            for(int i=120; i<123;i++){
                 out.println(br.readLine());
             }   
             
-                String query3 = "SELECT CONCAT(service_provider.first_name, ' ', service_provider.last_name), reqdate, req_time, reqstatus FROM request JOIN service_provider USING(spid) JOIN home_owner USING(hoid) WHERE home_owner.email ='" + session_email + "' ORDER BY reqstatus";//incomplete
+                String query3 = "SELECT cp_no, email, address FROM home_owner WHERE home_owner.email ='" + session_email + "'";//incomplete
                 ps = conn.prepareStatement(query3);
                 rs = ps.executeQuery();
                 
-                if(rs.first()){
-                    do{
-                        if(rs.getString(4).equalsIgnoreCase("Accepted")){
-                            out.println("<a href=\"\" class=\"list-group-item\">\n" +
-                                    "<span class='label label-success'>Accepted</span>\n" +
-                                    "<i class=\"fa fa-fw fa-calendar\"></i>" + rs.getString(1) + "\n" +
-                                    "<p style='color:blue'>" + rs.getString(2) + " " + rs.getString(3) + "</p>" +
-                                    "</a>");
-                        }else if(rs.getString(4).equalsIgnoreCase("Rejected")){
-                            out.println("<a href=\"\" class=\"list-group-item\">\n" +
-                                    "<span class='label label-danger'>Accepted</span>\n" +
-                                    "<i class=\"fa fa-fw fa-calendar\"></i>" + rs.getString(1) + "\n" +
-                                    "<p style='color:blue'>" + rs.getString(2) + " " + rs.getString(3) + "</p>" +
-                                    "</a>");
-                        }else{
-                            out.println("<a href=\"\" class=\"list-group-item\">\n" +
-                                    "<span class='label label-info'>Accepted</span>\n" +
-                                    "<i class=\"fa fa-fw fa-calendar\"></i>" + rs.getString(1) + "\n" +
-                                    "<p style='color:blue'>" + rs.getString(2) + " " + rs.getString(3) + "</p>" +
-                                    "</a>");
-                        }
-                        
-                    }while(rs.next());
-                }else{
-                    out.println("<div class='text-left'><p>No request found.</p></div>");
+                while(rs.next()){
+                    out.println("<p><span class=\"glyphicon glyphicon-earphone one\" style=\"width:50px;\"></span>" + rs.getString(1) + "</p>\n" +
+                                "<p><span class=\"glyphicon glyphicon-envelope one\" style=\"width:50px;\"></span>" + rs.getString(2) + "</p>\n" +
+                                "<p><span class=\"glyphicon glyphicon-map-marker one\" style=\"width:50px;\"></span>" + rs.getString(3) + "</p>");
                 }
             
-            for(int i=138; i<150;i++){
+            for(int i=124; i<175;i++){
                 out.println(br.readLine());
             } 
-                String query4 = "SELECT CONCAT(service_provider.first_name, ' ', service_provider.last_name), reqdate, req_time, date_rendered, time_rendered, amount FROM booking JOIN payment USING(bookid) JOIN request USING(reqid) JOIN service_provider USING(spid) JOIN home_owner USING(hoid)WHERE date_rendered IS NOT NULL AND home_owner.email ='" + session_email + "' ORDER BY reqdate";//incomplete
-                ps = conn.prepareStatement(query4);
-                rs = ps.executeQuery();
-
-                if(rs.first()){
-                    out.println("<thead>\n" +
-                                "<tr>\n" +
-                                "<th>Service Provider</th>\n" +
-                                "<th>Request Date</th>\n" +
-                                "<th>Request Time</th>\n" +
-                                "<th>Date Rendered</th>\n" +
-                                "<th>Time Rendered</th>\n" +
-                                "<th>Amount</th>\n" +
-                                "</tr>\n" +
-                                "</thead>" +
-                                "<tbody>\n" +
-                                "<tr>");
-                    do{
-                        out.println("<td>" + rs.getString(1) +"</td>\n" +
-                                    "<td>" + rs.getString(2) +"</td>\n" +
-                                    "<td>" + rs.getString(3) +"</td>\n" +
-                                    "<td>" + rs.getString(4) +"</td>\n" +
-                                    "<td>" + rs.getString(5) +"</td>\n" +
-                                    "<td>" + rs.getString(6) +"</td>");
-                    }while(rs.next());
-                }else{
-                    out.println("<div class='text-left'><p>No request found.</p></div>");
-                }
-                
-            for(int i=151; i<210;i++){
-                out.println(br.readLine());
-            } 
+            
         }catch(Exception e){
             
         }
