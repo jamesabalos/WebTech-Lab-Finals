@@ -64,7 +64,7 @@ public class CustomerServlet extends HttpServlet {
                 PreparedStatement ps;
                 ResultSet rs;
 
-                String query = "SELECT company_name, reqstatus FROM request JOIN service_provider JOIN USING(spid) WHERE reqstatus IN('Accepted', 'Rejected') ORDER BY reqdate";
+                String query = "SELECT company_name, reqstatus FROM request JOIN service_provider USING(spid) WHERE reqstatus IN('Accepted', 'Rejected') ORDER BY reqdate";
                 ps = conn.prepareStatement(query);
                 rs = ps.executeQuery();
 
@@ -88,7 +88,7 @@ public class CustomerServlet extends HttpServlet {
                         + "<li class=\"dropdown\">\n"
                         + "<a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\"><i class=\"fa fa-user\"></i>get data from session<b class=\"caret\"></b></a>");
  
-            for(int i=61; i<350;i++){
+            for(int i=61; i<305;i++){
                 out.println(br.readLine());
             }
         }catch(Exception e){
