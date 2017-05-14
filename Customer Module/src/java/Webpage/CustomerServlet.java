@@ -25,7 +25,7 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author s422
+ * @author 
  */
 @WebServlet(name = "CustomerServlet", urlPatterns = {"/CustomerServlet"})
 public class CustomerServlet extends HttpServlet {
@@ -42,8 +42,7 @@ public class CustomerServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        Date date = new Date();
-        String browser = request.getHeader("User-Agent");
+        String session_email = "";
         try {
             PrintWriter out = response.getWriter();
             InputStream is = getClass().getResourceAsStream("dashboard.txt");
@@ -52,20 +51,15 @@ public class CustomerServlet extends HttpServlet {
             for(int i=0; i<60;i++){
                 out.println(br.readLine());
             }
-            /*br = new BufferedReader(new InputStreamReader(no));
             
-            for(int i=0; i<6;i++){
-                out.println(br.readLine());
-            }*/
-            try{
                 Class.forName("com.mysql.jdbc.Driver");
                 String connUrl = "jdbc:mysql://localhost:3306/webtek?user=root&password=";
                 Connection conn = DriverManager.getConnection(connUrl);
                 PreparedStatement ps;
                 ResultSet rs;
 
-                String query = "SELECT company_name, reqstatus FROM request JOIN service_provider USING(spid) WHERE reqstatus IN('Accepted', 'Rejected') ORDER BY reqdate";
-                ps = conn.prepareStatement(query);
+                String query1 = "SELECT company_name, reqstatus FROM request JOIN service_provider USING(spid) JOIN home_owner USING(hoid) WHERE reqstatus IN('Accepted', 'Rejected') AND home_owner.email ='" + session_email + "' ORDER BY reqdate";//incomplete
+                ps = conn.prepareStatement(query1);
                 rs = ps.executeQuery();
 
                 if(rs.first()){
@@ -79,18 +73,37 @@ public class CustomerServlet extends HttpServlet {
                 }else{
                     out.println("<li><a href='#'>No notification.</a></li>");
                 }
-            }catch(Exception ex){
-                
-            }
+            
             
             out.println("</ul>\n"
                         + "</li>\n"
                         + "<li class=\"dropdown\">\n"
                         + "<a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\"><i class=\"fa fa-user\"></i>get data from session<b class=\"caret\"></b></a>");
  
-            for(int i=61; i<305;i++){
+            for(int i=61; i<128;i++){
                 out.println(br.readLine());
             }
+            
+                String query2 = "SELECT company_name, date_rendered, time_rendered FROM service_provider JOIN request USING(spid) JOIN booking USING(reqid) JOIN home_owner USING(hoid) WHERE date_rendered IS NOT NULL AND home_owner.email ='" + session_email + "'";//incomplete
+                ps = conn.prepareStatement(query2);
+                rs = ps.executeQuery();
+                
+                if(rs.first()){
+                    do{
+                        out.println("<a href=\"\" class=\"list-group-item\">\n" +
+                                    "<span class=\"badge\">"+ rs.getString(2) + " " + rs.getString(3) +"</span>\n" +
+                                    "<i class=\"fa fa-fw fa-calendar\"></i>" + rs.getString(1) + "\n" +
+                                    "</a>");
+                        
+                    }while(rs.next());
+                }else{
+                    out.println("<div class='text-left'><p>No history found.</p></div>");
+                }
+            
+            for(int i=129; i<299;i++){
+                out.println(br.readLine());
+            }    
+            
         }catch(Exception e){
             
         }

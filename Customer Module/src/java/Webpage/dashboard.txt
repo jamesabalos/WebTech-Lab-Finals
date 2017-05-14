@@ -88,9 +88,6 @@
                             <a href="dashboard.html"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
                         </li>
                         <li>
-                            <a href="inbox.html"><i class="fa fa-fw fa-envelope"></i>Inbox</a>
-                        </li>
-                        <li>
                             <a href="Account.html"><i class="fa fa-fw fa-cog"></i> Account Settings</a>
                         </li>
                     </ul>
@@ -127,9 +124,8 @@
                                     <h3 class="panel-title"><i class="fa fa-clock-o fa-fw"></i>History</h3>
                                 </div>
                                 <div class="panel-body">
-                                    <div id="morris-donut-chart"></div>
-                                    <div class="text-right">
-                                        <a href="#">View Details <i class="fa fa-arrow-circle-right"></i></a>
+                                     <div class="list-group">
+                                        
                                     </div>
                                 </div>
                             </div>
@@ -244,9 +240,6 @@
                                                 </tr>
                                             </tbody>
                                         </table>
-                                    </div>
-                                    <div class="text-right">
-                                        <a href="#">View All Transactions <i class="fa fa-arrow-circle-right"></i></a>
                                     </div>
                                 </div>
                             </div>
