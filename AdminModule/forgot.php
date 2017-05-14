@@ -97,20 +97,25 @@ session_start();
 
 <body>
 
-	<div class="body-content">
-	   <div class="body-content-module">
-		<div class="errorDetails">
-			<h1 class="errorDetailsHeading">Reset Password</h1>
-			<form action="forgot.php" method="POST" enctype="multipart/form-data" autocomplete="off">
-				<input type="email" name="email" placeholder="Enter your email" required />
-				<!-- <a href="index.php"><button class="btn btn-primary">Confirm</button></a> -->
-				<input type="text" name="newPassword" placeholder="New Password" required />
-				<input type="text" name="confirmNewPassword" placeholder="Confirm New Password" required />
-				<input type="submit" value="RESET" name="resetPassword" class="btn btn-block btn-primary" />
-			</form>
-		</div>
-	  </div>
-	</div>
+  <div class="container containerPassword">
+    <div class="row">
+        <div class="col-md-12">
+          
+          <h1 class="forgotHeading">Reset Password</h1>
+
+          <form class="form" action="forgot.php" method="POST" enctype="multipart/form-data" autocomplete="off">
+            <input class="form-control" type="email" placeholder="Enter your Email" name="email" required/>
+            <p class="break"></p>
+            <input class="form-control" type="password" placeholder="New Password" name="newPassword" required/>
+            <p class="break"></p>
+            <input class="form-control" type="password" placeholder="Confirm Password" name="confirmNewPassword" required/>
+            <p class="break"></p>
+            <input type="submit" value="RESET PASSWORD" name="resetPassword" class="btn btn-warning" />
+          </form>
+
+        </div>
+    </div>
+  </div>
 
 </body>
 </html>

@@ -16,7 +16,7 @@
 	text-transform: uppercase;
 }
 .break{
-	padding: 50px;
+	padding: 3px !important;
 }
 
 /* Add a gray background color and some padding to the footer */
@@ -32,4 +32,15 @@
 	.carousel-caption {
 	display: none; 
 }
+}
+h1.headingHome{
+	padding: 50px;
+	color: #267499;
+	font-size: 3.3em;
+}
+p.headingParagraph{
+	font-size: 1.3em;
+}
+.containerPassword{
+	margin-top:100px; 
 }
