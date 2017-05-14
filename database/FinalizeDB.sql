@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 14, 2017 at 02:00 PM
+-- Generation Time: May 14, 2017 at 02:55 PM
 -- Server version: 5.7.14
 -- PHP Version: 5.6.25
 
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `webtekfinals`
+-- Database: `webtek`
 --
 
 -- --------------------------------------------------------
@@ -78,7 +78,7 @@ CREATE TABLE `home_owner` (
   `address` varchar(50) NOT NULL,
   `gender` enum('F','M') NOT NULL,
   `cp_no` varchar(45) NOT NULL,
-  `tel_no` varchar(45) NOT NULL,
+  `tel_no` varchar(45) DEFAULT NULL,
   `req_status` enum('Accepted','Rejected','Pending') CHARACTER SET armscii8 COLLATE armscii8_bin NOT NULL DEFAULT 'Pending'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -126,7 +126,8 @@ CREATE TABLE `request` (
   `start_time` time NOT NULL,
   `reqstatus` enum('Accepted','Pending','Rejected') NOT NULL,
   `hoid` int(10) NOT NULL,
-  `spid` int(10) NOT NULL
+  `spid` int(10) NOT NULL,
+  `servid` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -248,7 +249,8 @@ ALTER TABLE `request`
   ADD PRIMARY KEY (`reqid`),
   ADD UNIQUE KEY `reqid_UNIQUE` (`reqid`),
   ADD KEY `ho_id_idx` (`hoid`),
-  ADD KEY `sp_id_idx` (`spid`);
+  ADD KEY `sp_id_idx` (`spid`),
+  ADD KEY `servid_idx` (`servid`);
 
 --
 -- Indexes for table `services`
@@ -345,6 +347,7 @@ ALTER TABLE `ho_service`
 --
 ALTER TABLE `request`
   ADD CONSTRAINT `ho_id` FOREIGN KEY (`hoid`) REFERENCES `home_owner` (`hoid`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `servid` FOREIGN KEY (`servid`) REFERENCES `services` (`servid`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `sp_id` FOREIGN KEY (`spid`) REFERENCES `service_provider` (`spid`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
