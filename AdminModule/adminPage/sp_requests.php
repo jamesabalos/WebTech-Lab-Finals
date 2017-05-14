@@ -47,15 +47,15 @@
 
 
  <?php
-          require ('../ConnectDB.php');
-			$sql = mysqli_query($con,"SELECT * FROM service_provider WHERE req_status='Pending'");
-				
-		if ($sql->num_rows > "0") {
-			    // output data of each row
-			 echo "<div class='container adminStylePaddingTop'>";
-	    echo "<h1>Pending Customer Account Requests</h1>";
-	    echo "<table class='table table-hover table-responsive'>";
-	    echo "<tr class='info'>
+require('../ConnectDB.php');
+$sql = mysqli_query($con, "SELECT * FROM service_provider WHERE req_status='Pending'");
+
+if ($sql->num_rows > "0") {
+    // output data of each row
+    echo "<div class='container adminStylePaddingTop'>";
+    echo "<h1>Pending Customer Account Requests</h1>";
+    echo "<table class='table table-hover table-responsive'>";
+    echo "<tr class='info'>
 									<th>Name</th>
 					                <th>Company Name</th>
 									<th>Email</th>
@@ -67,22 +67,22 @@
 									<th>ACTION</th>
 
 								</tr>";
-			   	 while( $rows = mysqli_fetch_assoc($sql) ){
-				        $first_name = $rows['first_name'];
-				        $last_name = $rows['last_name'];
-				        $company_name = $rows['company_name'];
-				        $email = $rows['email'];
-				        $birthdate = $rows['birthdate'];
-				        $address = $rows['address'];
-				        $gender = $rows['gender'];
-				        $cp_no = $rows['cp_no'];
-				        $tel_no = $rows['tel_no'];
-				
-			   		 	
-					   $row = $sql->num_rows; //Dynamic number for rows
-					   $col = 12; // Dynamic number for columns
-					   
-					    echo "<tr>
+    while ($rows = mysqli_fetch_assoc($sql)) {
+        $first_name   = $rows['first_name'];
+        $last_name    = $rows['last_name'];
+        $company_name = $rows['company_name'];
+        $email        = $rows['email'];
+        $birthdate    = $rows['birthdate'];
+        $address      = $rows['address'];
+        $gender       = $rows['gender'];
+        $cp_no        = $rows['cp_no'];
+        $tel_no       = $rows['tel_no'];
+        
+        
+        $row = $sql->num_rows; //Dynamic number for rows
+        $col = 12; // Dynamic number for columns
+        
+        echo "<tr>
 							       	<td>$first_name $last_name</td>
 					        		<td>$company_name</td>
 					        		<td>$email</td>
@@ -97,18 +97,18 @@
 
 
 					        </tr>";
-
-
-				}
-		  	echo "</table>";
-
-
-
-
-		} else {
-			  echo "<div class='container adminStylePaddingTop'>";
-	    echo "<h1>Pending Service Provider Account Requests</h1>";
-	    echo "<table class='table table-hover table-responsive'>
+        
+        
+    }
+    echo "</table>";
+    
+    
+    
+    
+} else {
+    echo "<div class='container adminStylePaddingTop'>";
+    echo "<h1>Pending Service Provider Account Requests</h1>";
+    echo "<table class='table table-hover table-responsive'>
 		   			<tr class = 'info'>
 									<th>Name</th>
 									<th>Email</th>
@@ -121,10 +121,10 @@
 
 								</tr>
 					</table>";
-			}
-			
-			exit();
-			?>
+}
+
+exit();
+?>
 
 
 
