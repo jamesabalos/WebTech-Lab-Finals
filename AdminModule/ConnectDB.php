@@ -1,6 +1,6 @@
 <?php
 
-$con = mysqli_connect("localhost","root","","webtek");
+$con = mysqli_connect("localhost","root","","webtekfinals");
 
 if (mysqli_connect_errno())
   {

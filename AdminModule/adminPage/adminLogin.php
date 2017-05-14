@@ -1,56 +1,117 @@
-
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <link href="../public/css/index.css" rel="stylesheet" type="text/css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> 
-   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script> 
-       <link href="../public/css/bootstrap.css" rel="stylesheet" type="text/css">
+    <title>Administrator | Home</title>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="icon" href="./public/images/home.png">
+
+    <link href="css/index.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="../public/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="../public/css/bootstrap-theme.css">
+    <link rel="stylesheet" type="text/css" href="../public/css/footer.css">
+    <link rel="stylesheet" type="text/css" href="../public/css/style.css">
+
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
 </head>
 
 
-
 <body>
-	 <nav class="navbar navbar-inverse">
+
+<!-- Navigation-->
+      <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container-fluid">
-        
-        <div class="navbar-header">
-            <a href="adminLogin.html" style="color:red" class="navbar-brand">ADMINISTRATOR</a>
+          <div class="navbar-header">
+            <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#myNavbar"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a class="navbar-brand" href="/"><img class="logo" src="../public/images/LogoAdmin.png"/></a>
+          </div>
+          <div class="collapse navbar-collapse" id="myNavbar">
+
+            <ul class="nav navbar-nav">
+            	<li><a href="ho_requests.php">Customer Registration Request</a></li>
+            	<li><a href="homeowner.php">Customer</a></li>
+            	<li><a href="sp_requests.php">Service Provider Registration Request</a></li>
+            	<li><a href="serviceprovider.php">Service Provider</a></li>
+            </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+              <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="fa fa-sign-in"></span> LOGIN </a>
+                <ul class="dropdown-menu">
+                    <li><button class="btn btn btn-secondary btn-sm btn-block" type="button" data-toggle="modal" data-target="#HOlogin">Customer Login</button></li>
+                    <li><button class="btn btn btn-secondary btn-sm btn-block" type="button" data-toggle="modal" data-target="#SPlogin">Service Provider Login</button></li>
+                </ul>
+              </li>
+
+              <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="fa fa-user"></span>  REGISTER</a>
+                <ul class="dropdown-menu">
+                    <li><button class="btn btn btn-secondary btn-sm btn-block" type="button" data-toggle="modal" data-target="#HORegistration">Customer Signup</button></li>
+                    <li><button class="btn btn btn-secondary btn-sm btn-block" type="button" data-toggle="modal" data-target="#SPRegistration">Service Provider Signup</button></li>
+                </ul>
+              </li>
+
+            </ul>
+          </div>
         </div>
-        
+      </nav>
+
+	<div class="carousel slide" id="myCarousel" data-ride="carousel">
+	      <!-- Wrapper for slides-->
+	      <div class="carousel-inner" role="listbox">
+	        <div class="item active"><img src="../public/images/Carousel1.jpg" alt="Image"/></div>
+	        <div class="item"><img src="../public/images/Carousel2.jpg" alt="Image"/></div>
+	        <div class="item"><img src="../public/images/Carousel3.jpg" alt="Image"/></div>
+	        <div class="item"><img src="../public/images/Carousel4.jpg" alt="Image"/></div>
+	      </div>
+	      <!-- Left and right controls--><a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span><span class="sr-only">Previous</span></a><a class="right carousel-control" href="#myCarousel" role="button" data-slide="next"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span><span class="sr-only">Next</span></a>
+	    </div>
+
+	    <div class="container">
+	      <div class="row">
+	        <h1 class="text-center headingHome">ABOUT US</h1>
+	        <div class="col-sm-9">
+	          <p class="headingParagraph">RenderIt is a company that provides the best Home Services thru the Web. The process and the transactions are done online. Every process are seen online. Just create and/or register your free Account with us and you can use that to request Services. Just Find a Service Provider that suits your Requested Home Service and we'll do the rest.</p>
+	        </div>
+	        <div class="col-sm-3">
+	          <img class="img-responsive" src="../public/images/House.png">
+	        </div>
+	      </div>
+	</div>
+
+
+
+
+	<footer class="footer-distributed">
+	        <div class="footer-left">
+	        <img class="logo" src="../public/images/LogoAdmin.png">
+	        <p class="footer-company-name">RenderIt © 2017</p>
+	        </div>
+
+	        <div class="footer-center">
+	        <div>   
+	            <i class="fa fa-map-marker"></i>
+	            <p>Baguio, Philippines</p>
+	        </div>
 	        <div>
-		        <ul class="nav navbar-nav">
-		 
+	            <i class="fa fa-phone"></i>
+	            <p>+63 925 369 5283</p>
+	        </div>
+	        <div>
+	            <i class="fa fa-envelope"></i>
+	            <p><a href="mailto:support@renderit.com">support@renderit.com</a></p>
+	        </div>
+	        </div>
 
-				    <li class="dropdown">
-				        <a href="ho_requests.php" class="dropdown-toggle" >HO REGISTRATION REQUEST</a>
-
-				    </li>
-
-				    <li class="dropdown"> 
-				    	<a href="homeowner.php" class="dropdown-toggle" >HOME OWNER</a>
-
-				    </li>
-
-				    <li class="dropdown">
-				        <a href="sp_requests.php" class="dropdown-toggle" >SP REGISTRATION REQUEST</a>
-				       
-
-				    </li>
-
-				    <li class="dropdown">
-				        <a href="serviceprovider.php" class="dropdown-toggle" >SERVICE PROVIDER </a>
-
-				    </li>
+	        <div class="footer-right">
+	            <p class="footer-company-about"><span>About RenderIt!</span>          
+	            RenderIt is a company that provides the best Home Services thru the Web. The process and the transactions are done online. Just Find a Service Provider that suits your Requested Home Service and we'll do the rest.</p>
+	        </div>
+	    </footer>
 
 
-		   		 </ul>
-	    	</div>
-        </div>
-
-    </nav>
-
-
-
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> 
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 
 </body>
 </html>
