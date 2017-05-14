@@ -8,7 +8,7 @@ block content
 				h1 PENDING SERVICE REQUEST/S
 		.col-sm-12
 			for ho_request in hoList
-				if ho_request.reqstatus == "Pending"
+				if ho_request.reqstatus == "Pending" && ho_request.reqstatus != "Rejected"
 					.row
 						.col-sm-2
 							.well
