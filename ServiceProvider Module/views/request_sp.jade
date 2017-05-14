@@ -16,37 +16,65 @@ block content
 									img.img-circle(src='./images/maleDashboard.png', height='90', width='90', alt='Avatar')
 						.col-sm-8
 							.well
-									p
-										i.fa.fa-user
-										|  Name:
-									p= ho_request.name
-									p
-										i.fa.fa-building
-										|  Address:
-									p= ho_request.address
-									p
-										i.fa.fa-envelope
-										|  Email:
-									p= ho_request.email
-									p
-										i.fa.fa-phone
-										|   Phone Number:
-									p= ho_request.cp_no
-									p
-										i.fa.fa-calendar
-										|  Date and Time Requested:
-									p= ho_request.startdate + " (" + ho_request.starttime + ")"						
-									p
-										i.fa.fa-check-square-o
-										|   Service to be rendered:
-									p= ho_request.servtype
-						.col-sm-2
-							button.btn.btn-success.btn-lg.btn-block(type='button')
-								span.fa.fa-check 
-								|	ACCEPT
+									table.table
+										tbody
+											tr
+												th.head(scope='row') Name
+												td 
+													= ho_request.name
+											tr
+												th.head(scope='row') Address
+												td 
+													= ho_request.address
+											tr
+												th.head(scope='row') Email
+												td
+													= ho_request.email
+											tr
+												th.head(scrop='row') Phone Number
+												td
+													= ho_request.cp_no
+											tr
+												th.head(scrop='row') Date and Time Requested
+												td
+													= ho_request.startdate + " (" + ho_request.starttime + ")"	
+											tr
+												th.head(scrop='row') Service to be Rendered
+												td
+													= ho_request.servtype
 
-							button.btn.btn-danger.btn-lg.btn-block(type='button')
-								span.fa.fa-times 
-								|	DECLINE
+						.col-sm-2
+							button.btn.btn-success.btn-md.btn-block(type='button', data-toggle='modal', data-target='#acceptRequest') ACCEPT
+							#acceptRequest.modal.fade(role='dialog')
+								.modal-dialog
+									// Modal content
+									.modal-content
+										.modal-header
+											button.close(type='button', data-dismiss='modal') ×
+											h4.modal-title Accept Requests
+										.modal-body
+											.form-group
+												label(for='acceptName') Are you sure you want to accept 
+													= ho_request.name
+										.modal-footer
+											button.btn.btn-success(type='button') Accept
+											button.btn.btn-danger(type='button', data-dismiss='modal') Close
+							br
+							
+							button.btn.btn-danger.btn-md.btn-block(type='button', data-toggle='modal', data-target='#declineRequest') DECLINE
+							#declineRequest.modal.fade(role='dialog')
+								.modal-dialog
+									// Modal content
+									.modal-content
+										.modal-header
+											button.close(type='button', data-dismiss='modal') ×
+											h4.modal-title Decline Requests
+										.modal-body
+											.form-group
+												label(for='acceptName') Are you sure you want to decline 
+													= ho_request.name
+										.modal-footer
+											button.btn.btn-warning(type='button') Decline
+											button.btn.btn-danger(type='button', data-dismiss='modal') Close
 
 
