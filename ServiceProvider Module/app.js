@@ -12,6 +12,7 @@ var index = require('./routes/index_sp');
 var profile = require('./routes/profile_sp');
 var booking = require('./routes/booking_sp');
 var request = require('./routes/request_sp');
+var transaction = require('./routes/transaction_sp');
 
 var app = express();
 
@@ -28,11 +29,12 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 
-//Pag routes
+//Page routes
 app.use('/', index); //home
 app.use('/profile', profile); //profile
 app.use('/booking', booking); //booking
 app.use('/request', request); //request
+app.use('/transactions', transaction); //request
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
