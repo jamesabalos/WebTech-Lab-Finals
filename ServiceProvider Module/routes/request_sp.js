@@ -39,6 +39,7 @@ var connection = mysql.createConnection({
 		  		}
 		  		// Add object into array
 		  		hoList.push(ho_request);
+		  		var total_request = rows.length;
 	  		}
 	  		console.log("SUCCESSFUL");
 	  	} 
@@ -47,9 +48,9 @@ var connection = mysql.createConnection({
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-
   res.render('request_sp', { title : 'Request' });
   res.render('request_sp', {'hoList': hoList});
+  res.render('index_sp', {'total_request': total_request});
 });
 
 module.exports = router;

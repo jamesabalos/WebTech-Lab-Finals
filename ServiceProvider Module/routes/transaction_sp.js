@@ -13,6 +13,7 @@ var connection = mysql.createConnection({
 
 	connection.connect();  
 	var hoList = [];
+	var total_amount = 0;
 
 	var session_email = "'samsonsean@gmail.com'";
 
@@ -38,7 +39,6 @@ var connection = mysql.createConnection({
 		  		}
 		  		// Add object into array
 		  		hoList.push(trans_booking);
-		  		var total_amount = 0;
 		  		total_amount = rows[i].amount + total_amount;
 	  		}
 	  		console.log(total_amount);
