@@ -34,7 +34,7 @@
 }
 }
 h1.headingHome{
-	padding: 50px;
+	padding-bottom: 50px;
 	color: #267499;
 	font-size: 3.3em;
 }
@@ -46,4 +46,29 @@ p.headingParagraph{
 }
 .adminStylePaddingTop{
 	margin-top: 100px !important;
+}
+h2.titleButton{
+	font-size: 1.5em !important;
+	color: #236f9b;
+}
+.TitleAdmin{
+	height: 350px;
+	padding-top: 50px;
+	padding-bottom: 50px;
+}
+.titleRow{
+	padding: 50px;
+}
+
+i.reg{
+	background-color:  #297087;
+	color: #ffffff;
+	font-size: 40px;
+	width: 60px;
+	height: 60px;
+	border-radius: 50%;
+	text-align: center;
+	line-height: 60px;
+	margin: 10px 15px;
+	vertical-align: middle;
 }
