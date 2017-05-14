@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Administrator | Home</title>
+    <title>Administrator | Customer Requests</title>
 
 	<link href="css/index.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" type="text/css" href="../public/css/bootstrap.css">
@@ -37,8 +37,6 @@
             </ul>
 
             <ul class="nav navbar-nav navbar-right">
-
-            	<li><a href="" type="button" data-toggle="modal" data-target="#AdminLogin"><span class="fa fa-sign-in"></span>	LOGIN</a></li>
 
             	<li><a href=""><span class="fa fa-sign-out"></span>	LOGOUT</a></li>
 
@@ -111,7 +109,7 @@
 	    echo "<div class='container adminStylePaddingTop'>";
 	    echo "<h1>Pending Customer Account Requests</h1>";
 	    echo "<table class='table table-hover table-responsive'>
-		   			<tr>
+		   			<tr class = 'info'>
 						<th>Last Name</th>
 		                <th>First Name</th>
 						<th>Email</th>
@@ -120,7 +118,7 @@
 						<th>Gender</th>
 						<th>Cellphone Number</th>
 						<th>Telephone Number</th>
-						<th>ACTION</th>
+						<th>Action</th>
 
 					</tr>
 		</table>";

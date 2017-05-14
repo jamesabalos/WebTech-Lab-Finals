@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Administrator | Home</title>
+    <title>Administrator | Customer</title>
 
 	<link href="css/index.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" type="text/css" href="../public/css/bootstrap.css">
