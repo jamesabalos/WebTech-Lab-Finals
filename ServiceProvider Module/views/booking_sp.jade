@@ -38,7 +38,9 @@ block content
 						p
 							i.fa.fa-money
 							|   Service Cost:
-						button.btn.btn-success.btn-sm(type='button', data-toggle='modal', data-target='#addServiceDiv') DONE
+						button.btn.btn-success.btn-sm(type='button', data-toggle='modal', data-target='#addServiceDiv')
+							span.fa.fa-check 
+							|	DONE
 						#addServiceDiv.modal.fade(role='dialog')
 							.modal-dialog
 								// Modal content
@@ -57,7 +59,11 @@ block content
 											label(for='serviceCost') How much is the total cost?
 											input#addService.form-control(type='text')
 									.modal-footer
-										button.btn.btn-success(type='button') Save
-										button.btn.btn-danger(type='button', data-dismiss='modal') Close
+										button.btn.btn-success(type='button')
+											span.fa.fa-check 
+											|	DONE
+										button.btn.btn-danger(type='button', data-dismiss='modal')
+											span.fa.fa-times 
+											|	CLOSE
 
 
