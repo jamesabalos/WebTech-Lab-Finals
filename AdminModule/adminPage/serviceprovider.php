@@ -91,6 +91,18 @@ if ($sql->num_rows > "0") {
 					        		<td>$gender</td>
 					        		<td>$cp_no</td>
 					        		<td>$tel_no</td>
+                                    <td>
+                                    <form action='activate.php' method='post'>
+                                        <select name='Value'>
+                                        <option value='Active'>Activate</option>
+                                        <option value='Inactive'>Deactivate</option>
+                                        </select>
+                                        <input type='submit' name='submit' onclick='update_SP_status(this)' value='Update' />
+                                    </form>
+
+                                    </td>
+
+
 					        		
 
 
