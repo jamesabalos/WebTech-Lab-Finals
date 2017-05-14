@@ -44,3 +44,6 @@ p.headingParagraph{
 .containerPassword{
 	margin-top:100px; 
 }
+.adminStylePaddingTop{
+	margin-top: 100px !important;
+}

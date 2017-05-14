@@ -16,6 +16,9 @@
     <link rel="stylesheet" type="text/css" href="../public/css/style.css">
 
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> 
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 </head>
 
 
@@ -25,7 +28,7 @@
       <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container-fluid">
           <div class="navbar-header">
-            <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#myNavbar"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a class="navbar-brand" href="/"><img class="logo" src="../public/images/LogoAdmin.png"/></a>
+            <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#myNavbar"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a class="navbar-brand" href="adminLogin.php"><img class="logo" src="../public/images/LogoAdmin.png"/></a>
           </div>
           <div class="collapse navbar-collapse" id="myNavbar">
 
@@ -37,24 +40,36 @@
             </ul>
 
             <ul class="nav navbar-nav navbar-right">
-              <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="fa fa-sign-in"></span> LOGIN </a>
-                <ul class="dropdown-menu">
-                    <li><button class="btn btn btn-secondary btn-sm btn-block" type="button" data-toggle="modal" data-target="#HOlogin">Customer Login</button></li>
-                    <li><button class="btn btn btn-secondary btn-sm btn-block" type="button" data-toggle="modal" data-target="#SPlogin">Service Provider Login</button></li>
-                </ul>
-              </li>
 
-              <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="fa fa-user"></span>  REGISTER</a>
-                <ul class="dropdown-menu">
-                    <li><button class="btn btn btn-secondary btn-sm btn-block" type="button" data-toggle="modal" data-target="#HORegistration">Customer Signup</button></li>
-                    <li><button class="btn btn btn-secondary btn-sm btn-block" type="button" data-toggle="modal" data-target="#SPRegistration">Service Provider Signup</button></li>
-                </ul>
-              </li>
+            	<li><a href="" type="button" data-toggle="modal" data-target="#AdminLogin"><span class="fa fa-sign-in"></span>	LOGIN</a></li>
+
+            	<li><a href=""><span class="fa fa-sign-out"></span>	LOGOUT</a></li>
 
             </ul>
           </div>
         </div>
       </nav>
+
+    <div id="AdminLogin" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button class="close" type="button" data-dismiss="modal">×</button>
+              <h4 class="modal-title">Welcome Administrator!</h4>
+            </div>
+            <div class="modal-body">
+              <form class="form" action="" method="POST" enctype="multipart/form-data" autocomplete="off">
+                <input class="form-control" type="email" placeholder="Email" name="email" required/>
+                <p class="break"></p>
+                <input class="form-control" type="password" placeholder="Password" name="password" required/>
+                <p class="break"></p>
+                <input type="submit" value="Login" name="loginHO" class="btn btn-block btn-primary" />
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
 
 	<div class="carousel slide" id="myCarousel" data-ride="carousel">
 	      <!-- Wrapper for slides-->
@@ -108,10 +123,6 @@
 	            RenderIt is a company that provides the best Home Services thru the Web. The process and the transactions are done online. Just Find a Service Provider that suits your Requested Home Service and we'll do the rest.</p>
 	        </div>
 	    </footer>
-
-
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> 
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 
 </body>
 </html>
