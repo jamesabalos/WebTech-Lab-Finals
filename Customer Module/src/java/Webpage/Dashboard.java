@@ -39,7 +39,8 @@ public class Dashboard extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        String session_email = "";
+        String session_email = " ";
+        String home_owner = "";
         try {
             PrintWriter out = response.getWriter();
             InputStream is = getClass().getResourceAsStream("dashboard.txt");
@@ -55,33 +56,39 @@ public class Dashboard extends HttpServlet {
                 PreparedStatement ps;
                 ResultSet rs;
 
-                String query1 = "SELECT company_name, reqstatus FROM request JOIN service_provider USING(spid) JOIN home_owner USING(hoid) WHERE reqstatus IN('Accepted', 'Rejected') AND home_owner.email ='" + session_email + "' ORDER BY reqdate";//incomplete
+                String query1 = "SELECT CONCAT(service_provider.first_name, ' ', service_provider.last_name), reqdate, req_time, reqstatus FROM request JOIN service_provider USING(spid) JOIN home_owner USING(hoid) WHERE reqstatus IN('Accepted', 'Rejected') AND home_owner.email ='" + session_email + "' ORDER BY reqdate";//incomplete
                 ps = conn.prepareStatement(query1);
                 rs = ps.executeQuery();
 
                 if(rs.first()){
                     do{
-                        if(rs.getString(2).equalsIgnoreCase("accepted")){
-                            out.println("<li><a href='#'>" + rs.getString(1) + "<span class='label label-success'>Accepted</span></a></li>");
+                        if(rs.getString(4).equalsIgnoreCase("Accepted")){
+                            out.println("<li><a href='#'>" + rs.getString(1) + "<span class='label label-success' style='float:right'>Accepted</span><p style='font-size:11px'>" + rs.getString(2) + " " + rs.getString(3) + "</p></a></li>");
                         }else{
-                            out.println("<li><a href='#'>" + rs.getString(1) + "<span class='label label-danger'>Rejected</span></a></li>");
+                            out.println("<li><a href='#'>" + rs.getString(1) + "<span class='label label-danger'>Rejected</span><p>" + rs.getString(2) + " " + rs.getString(3) + "</p></a></li>");
                         }
                     }while(rs.next());
                 }else{
                     out.println("<li><a href='#'>No notification.</a></li>");
                 }
             
-            
+                String query_name = "SELECT CONCAT(first_name, ' ', last_name) FROM home_owner WHERE home_owner.email ='" + session_email + "'";//incomplete
+                ps = conn.prepareStatement(query_name);
+                rs = ps.executeQuery();
+                
+                while(rs.next()){
+                    home_owner = rs.getString(1);
+                }
             out.println("</ul>\n"
                         + "</li>\n"
                         + "<li class=\"dropdown\">\n"
-                        + "<a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\"><i class=\"fa fa-user\"></i>get data from session<b class=\"caret\"></b></a>");
+                        + "<a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\"><i class=\"fa fa-user\"></i>" + home_owner + "<b class=\"caret\"></b></a>");
  
             for(int i=61; i<128;i++){
                 out.println(br.readLine());
             }
             
-                String query2 = "SELECT company_name, date_rendered, time_rendered FROM service_provider JOIN request USING(spid) JOIN booking USING(reqid) JOIN home_owner USING(hoid) WHERE date_rendered IS NOT NULL AND home_owner.email ='" + session_email + "'";//incomplete
+                String query2 = "SELECT CONCAT(service_provider.first_name, ' ', service_provider.last_name), date_rendered, time_rendered FROM service_provider JOIN request USING(spid) JOIN booking USING(reqid) JOIN home_owner USING(hoid) WHERE date_rendered IS NOT NULL AND home_owner.email ='" + session_email + "'";//incomplete
                 ps = conn.prepareStatement(query2);
                 rs = ps.executeQuery();
                 
@@ -97,26 +104,76 @@ public class Dashboard extends HttpServlet {
                     out.println("<div class='text-left'><p>No history found.</p></div>");
                 }
             
-            for(int i=129; i<139;i++){
+            for(int i=129; i<140;i++){
                 out.println(br.readLine());
             }   
             
-                String query3 = "SELECT company_name, date_rendered, time_rendered FROM service_provider JOIN request USING(spid) JOIN booking USING(reqid) JOIN home_owner USING(hoid) WHERE date_rendered IS NOT NULL AND home_owner.email ='" + session_email + "'";//incomplete
-                ps = conn.prepareStatement(query2);
+                String query3 = "SELECT CONCAT(service_provider.first_name, ' ', service_provider.last_name), reqdate, req_time, reqstatus FROM request JOIN service_provider USING(spid) JOIN home_owner USING(hoid) WHERE home_owner.email ='" + session_email + "' ORDER BY reqstatus";//incomplete
+                ps = conn.prepareStatement(query3);
                 rs = ps.executeQuery();
                 
                 if(rs.first()){
                     do{
-                        out.println("<a href=\"\" class=\"list-group-item\">\n" +
-                                    "<span class=\"badge\">"+ rs.getString(2) + " " + rs.getString(3) +"</span>\n" +
+                        if(rs.getString(4).equalsIgnoreCase("Accepted")){
+                            out.println("<a href=\"\" class=\"list-group-item\">\n" +
+                                    "<span class='label label-success'>Accepted</span>\n" +
                                     "<i class=\"fa fa-fw fa-calendar\"></i>" + rs.getString(1) + "\n" +
+                                    "<p style='color:blue'>" + rs.getString(2) + " " + rs.getString(3) + "</p>" +
                                     "</a>");
+                        }else if(rs.getString(4).equalsIgnoreCase("Rejected")){
+                            out.println("<a href=\"\" class=\"list-group-item\">\n" +
+                                    "<span class='label label-danger'>Accepted</span>\n" +
+                                    "<i class=\"fa fa-fw fa-calendar\"></i>" + rs.getString(1) + "\n" +
+                                    "<p style='color:blue'>" + rs.getString(2) + " " + rs.getString(3) + "</p>" +
+                                    "</a>");
+                        }else{
+                            out.println("<a href=\"\" class=\"list-group-item\">\n" +
+                                    "<span class='label label-info'>Accepted</span>\n" +
+                                    "<i class=\"fa fa-fw fa-calendar\"></i>" + rs.getString(1) + "\n" +
+                                    "<p style='color:blue'>" + rs.getString(2) + " " + rs.getString(3) + "</p>" +
+                                    "</a>");
+                        }
                         
                     }while(rs.next());
                 }else{
-                    out.println("<div class='text-left'><p>No history found.</p></div>");
+                    out.println("<div class='text-left'><p>No request found.</p></div>");
                 }
             
+            for(int i=141; i<153;i++){
+                out.println(br.readLine());
+            } 
+                String query4 = "SELECT CONCAT(service_provider.first_name, ' ', service_provider.last_name), reqdate, req_time, date_rendered, time_rendered, amount FROM booking JOIN payment USING(bookid) JOIN request USING(reqid) JOIN service_provider USING(spid) JOIN home_owner USING(hoid)WHERE date_rendered IS NOT NULL AND home_owner.email ='" + session_email + "' ORDER BY reqdate";//incomplete
+                ps = conn.prepareStatement(query4);
+                rs = ps.executeQuery();
+
+                if(rs.first()){
+                    out.println("<thead>\n" +
+                                "<tr>\n" +
+                                "<th>Service Provider</th>\n" +
+                                "<th>Request Date</th>\n" +
+                                "<th>Request Time</th>\n" +
+                                "<th>Date Rendered</th>\n" +
+                                "<th>Time Rendered</th>\n" +
+                                "<th>Amount</th>\n" +
+                                "</tr>\n" +
+                                "</thead>" +
+                                "<tbody>\n" +
+                                "<tr>");
+                    do{
+                        out.println("<td>" + rs.getString(1) +"</td>\n" +
+                                    "<td>" + rs.getString(2) +"</td>\n" +
+                                    "<td>" + rs.getString(3) +"</td>\n" +
+                                    "<td>" + rs.getString(4) +"</td>\n" +
+                                    "<td>" + rs.getString(5) +"</td>\n" +
+                                    "<td>" + rs.getString(6) +"</td>");
+                    }while(rs.next());
+                }else{
+                    out.println("<div class='text-left'><p>No request found.</p></div>");
+                }
+                
+            for(int i=154; i<213;i++){
+                out.println(br.readLine());
+            } 
         }catch(Exception e){
             
         }
