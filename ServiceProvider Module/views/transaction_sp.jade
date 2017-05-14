@@ -35,34 +35,16 @@ block content
 							span.fa.fa-calculator
 							|	Total Service Cost
 				tbody
-					tr
-						td Jose Santos
-						td Quezon City
-						td Gardening
-						td 03/10/2017
-						td 12:20
-						td 03/10/2017
-						td 5:00
-						td 2,000
-
-					tr
-						td Jose Santos
-						td Quezon City
-						td Gardening
-						td 03/10/2017
-						td 12:20
-						td 03/10/2017
-						td 5:00
-						td 2,000
-
-					tr
-						td Jose Santos
-						td Quezon City
-						td Gardening
-						td 03/10/2017
-						td 12:20
-						td 03/10/2017
-						td 5:00
-						td 2,000
+					for trans_booking in hoList
+						if trans_booking.payId != undefined
+							tr
+								td= trans_booking.name
+								td= trans_booking.address
+								td= trans_booking.servtype
+								td= trans_booking.startdate
+								td= trans_booking.starttime
+								td= trans_booking.date_rendered
+								td= trans_booking.time_rendered
+								td= trans_booking.amount
 
 

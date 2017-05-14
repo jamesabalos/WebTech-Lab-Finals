@@ -7,38 +7,46 @@ block content
 				span.fa.fa-home
 				h1 PENDING SERVICE REQUEST/S
 		.col-sm-12
-			.row
-				.col-sm-2
-					.well
-						p.text-center
-							img.img-circle(src='./images/maleDashboard.png', height='90', width='90', alt='Avatar')
-				.col-sm-8
-					.well
-						p
-							i.fa.fa-user
-							|  Name:
-						p
-							i.fa.fa-building
-							|  Address:
-						p
-							i.fa.fa-envelope
-							|  Email:
-						p
-							i.fa.fa-phone
-							|   Phone Number:
-						p
-							i.fa.fa-calendar
-							|  Date Requested:
-						p
-							i.fa.fa-check-square-o
-							|   Service to be rendered:
-				.col-sm-2
-					button.btn.btn-success.btn-lg.btn-block(type='button')
-						span.fa.fa-check 
-						|	ACCEPT
+			for ho_request in hoList
+				if ho_request.reqstatus == "Pending"
+					.row
+						.col-sm-2
+							.well
+								p.text-center
+									img.img-circle(src='./images/maleDashboard.png', height='90', width='90', alt='Avatar')
+						.col-sm-8
+							.well
+									p
+										i.fa.fa-user
+										|  Name:
+									p= ho_request.name
+									p
+										i.fa.fa-building
+										|  Address:
+									p= ho_request.address
+									p
+										i.fa.fa-envelope
+										|  Email:
+									p= ho_request.email
+									p
+										i.fa.fa-phone
+										|   Phone Number:
+									p= ho_request.cp_no
+									p
+										i.fa.fa-calendar
+										|  Date and Time Requested:
+									p= ho_request.startdate + " (" + ho_request.starttime + ")"						
+									p
+										i.fa.fa-check-square-o
+										|   Service to be rendered:
+									p= ho_request.servtype
+						.col-sm-2
+							button.btn.btn-success.btn-lg.btn-block(type='button')
+								span.fa.fa-check 
+								|	ACCEPT
 
-					button.btn.btn-danger.btn-lg.btn-block(type='button')
-						span.fa.fa-times 
-						|	DECLINE
+							button.btn.btn-danger.btn-lg.btn-block(type='button')
+								span.fa.fa-times 
+								|	DECLINE
 
 

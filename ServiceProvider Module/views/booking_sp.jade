@@ -6,64 +6,69 @@ block content
 			.header.text-center
 				span.fa.fa-calendar
 				h1 CURRENT BOOKINGS
-		.col-sm-12
-			.row
-				.col-sm-2
-					.well
-						p.text-center
-							img.img-circle(src='./images/maleDashboard.png', height='90', width='90', alt='Avatar')
-				.col-sm-10
-					.well
-						p
-							i.fa.fa-user
-							|  Name:
-						p
-							i.fa.fa-building
-							|  Address:
-						p
-							i.fa.fa-envelope
-							|  Email:
-						p
-							i.fa.fa-phone
-							|   Phone Number:
-						p
-							i.fa.fa-check-square-o
-							|   Service being rendered:
-						p
-							i.fa.fa-calendar
-							|  Date Started:
-						p
-							i.fa.fa-check
-							|   Date Finished:
-						p
-							i.fa.fa-money
-							|   Service Cost:
-						button.btn.btn-success.btn-sm(type='button', data-toggle='modal', data-target='#addServiceDiv')
-							span.fa.fa-check 
-							|	DONE
-						#addServiceDiv.modal.fade(role='dialog')
-							.modal-dialog
-								// Modal content
-								.modal-content
-									.modal-header
-										button.close(type='button', data-dismiss='modal') ×
-										h4.modal-title Service Done
-									.modal-body
-										.form-group
-											label(for='renderedDate') Date Finished
-											input#addService.form-control(type='text')
+		for ho_booking in hoList
+			if ho_booking.req_status == "Accepted"
+				.col-sm-12
+					.row
+						.col-sm-2
+							.well
+								p.text-center
+									img.img-circle(src='./images/maleDashboard.png', height='90', width='90', alt='Avatar')
+						.col-sm-10
+							.well
+								p
+									i.fa.fa-user
+									|  Name:
+								p= ho_booking.name
+								p
+									i.fa.fa-building
+									|  Address:
+								p= ho_booking.address
+								p
+									i.fa.fa-envelope
+									|  Email:
+								p= ho_booking.email
+								p
+									i.fa.fa-phone
+									|   Phone Number:
+								p= ho_booking.cp_no
+								p
+									i.fa.fa-check-square-o
+									|   Service being rendered:
+								p
+									i.fa.fa-calendar
+									|  Date and Time Started:
+								p= ho_booking.startdate + " (" + ho_booking.starttime + ")"
+								p
+									i.fa.fa-money
+									|   Type of Service:
+								p= ho_booking.servtype
+								button.btn.btn-success.btn-sm(type='button', data-toggle='modal', data-target='#addServiceDiv')
+									span.fa.fa-check 
+									|	DONE
+								#addServiceDiv.modal.fade(role='dialog')
+									.modal-dialog
+										// Modal content
+										.modal-content
+											.modal-header
+												button.close(type='button', data-dismiss='modal') ×
+												h4.modal-title Service Done
+											.modal-body
+												.form-group
+													label(for='renderedDate') Date Finished
+													input#addService.form-control(type='text')
 
-											label(for='renderedDate') Time Finished
-											input#addService.form-control(type='text')
+												label(for='renderedDate') Time Finished
+												input#addService.form-control(type='text')
 
-											label(for='serviceCost') How much is the total cost?
-											input#addService.form-control(type='text')
-									.modal-footer
-										button.btn.btn-success(type='button')
-											span.fa.fa-check 
-											|	DONE
-										button.btn.btn-danger(type='button', data-dismiss='modal')
-											span.fa.fa-times 
-											|	CLOSE
+												label(for='serviceCost') How much is the total cost?
+												input#addService.form-control(type='text')
+										.modal-footer
+											button.btn.btn-success(type='button')
+												span.fa.fa-check 
+												|	DONE
+											button.btn.btn-danger(type='button', data-dismiss='modal')
+												span.fa.fa-times 
+												|	CLOSE
 
 

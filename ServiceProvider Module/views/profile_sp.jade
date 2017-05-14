@@ -7,8 +7,7 @@ block content
 				.well.text-center
 					p     
 						img.img-circle(src='./images/male.png', height='90', width='90', alt='Avatar')
-					p.name
-						|Pedro Agustin
+					p.name= sp_account.name
 					p
 						a(href='/')
 						button.btn.btn-danger.btn-sm(type='button', data-toggle='modal', data-target='#myModal') Logout
@@ -31,60 +30,31 @@ block content
 								.modal-footer
 									button.btn.btn-success(type='button') Add
 									button.btn.btn-danger(type='button', data-dismiss='modal') Close
-					p
-						span.label.label-info Laundry
-						span.label.label-info Plumbing
-						span.label.label-info Painting
+					for sp in spList
+						p
+							span.label.label-info= sp.servtype
 				.well
 					p.title.text-center
 						| BASIC INFORMATION
 					p.companyName
-						span.glyphicon.glyphicon-copyright-mark
+						span.glyphicon.glyphicon-copyright-mark= sp_account.company_name
 					p.phoneNumber
-						span.glyphicon.glyphicon-earphone
+						span.glyphicon.glyphicon-earphone= sp_account.cp_no
 					p.email
-						span.glyphicon.glyphicon-envelope
-					p.companyAddress
-						span.glyphicon.glyphicon-globe
+						span.glyphicon.glyphicon-envelope= sp_account.email
 					p.rating
 						span.glyphicon.glyphicon-ok
 			.col-sm-9
 				.row
 					.col-sm-12
 						h1.dashboardHeading FEEDBACKS
-				.row
-					.col-sm-3
-						.well
-							p.text-center 
-								img.img-circle(src='./images/maleDashboard.png', height='90', width='90', alt='Avatar')
-					.col-sm-9
-						.well
-							p
-								| Just Forgot that I had to mention something about someone to someone about how I forgot something, but now I forgot it. Ahh, forget it! Or wait. I remember.... no I don't.
-				.row
-					.col-sm-3
-						.well
-							p.text-center
-								img.img-circle(src='./images/male1Dashboard.png', height='90', width='90', alt='Avatar')
-					.col-sm-9
-						.well
-							p
-								| Just Forgot that I had to mention something about someone to someone about how I forgot something, but now I forgot it. Ahh, forget it! Or wait. I remember.... no I don't.
-				.row
-					.col-sm-3
-						.well
-							p.text-center 
-								img.img-circle(src='./images/maleDashboard.png', height='90', width='90', alt='Avatar')
-					.col-sm-9
-						.well
-							p
-								| Just Forgot that I had to mention something about someone to someone about how I forgot something, but now I forgot it. Ahh, forget it! Or wait. I remember.... no I don't.
-				.row
-					.col-sm-3
-						.well
-							p.text-center 
-								img.img-circle(src='./images/male1Dashboard.png', height='90', width='90', alt='Avatar')
-					.col-sm-9
-						.well
-							p
-								| Just Forgot that I had to mention something about someone to someone about how I forgot something, but now I forgot it. Ahh, forget it! Or wait. I remember.... no I don't.
+				for feedback in spList
+						if feedback.comment != undefined
+							.row
+								.col-sm-3
+									.well
+										p.text-center 
+											img.img-circle(src='./images/maleDashboard.png', height='90', width='90', alt='Avatar')
+								.col-sm-9
+									.well
+										p= feedback.comment	
