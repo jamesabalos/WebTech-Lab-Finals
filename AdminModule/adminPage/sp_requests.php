@@ -3,7 +3,7 @@
 <head>
     <title>Administrator | Service Provider Requests</title>
 
-	<link href="css/index.css" rel="stylesheet" type="text/css">
+	
     <link rel="stylesheet" type="text/css" href="../public/css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="../public/css/bootstrap-theme.css">
     <link rel="stylesheet" type="text/css" href="../public/css/footer.css">
@@ -66,7 +66,8 @@ if ($sql->num_rows > "0") {
 									<th>Telephone Number</th>
 									<th>ACTION</th>
 
-								</tr>";
+		</tr>";
+
     while ($rows = mysqli_fetch_assoc($sql)) {
         $first_name   = $rows['first_name'];
         $last_name    = $rows['last_name'];
