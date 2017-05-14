@@ -1,10 +1,10 @@
 
 <html>
 <head>
-    <link href="../css/index.css" rel="stylesheet" type="text/css">
+    <link href="../public/css/index.css" rel="stylesheet" type="text/css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> 
    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script> 
-       <link href="../css/bootstrap.css" rel="stylesheet" type="text/css">
+       <link href="../public/css/bootstrap.css" rel="stylesheet" type="text/css">
 </head>
 
 
@@ -58,14 +58,14 @@
 			 echo "<table border='3' class='rwd-table'>";
 					   			echo"<tr>
 									<th>Name</th>
-					                <th>Company Name</th>
 									<th>Email</th>
+					                <th>Company Name</th>
 									<th>Birthdate</th>
 									<th>Address</th>
 									<th>Gender</th>
 									<th>Cellphone Number</th>
 									<th>Telephone Number</th>
-									<th>ACTION</th>
+									<th>Button</th>
 
 								</tr>";
 
@@ -86,13 +86,16 @@
 					   
 					     echo "<tr>
 							       	<td>$first_name $last_name</td>
-					        		<td>$company_name</td>
 					        		<td>$email</td>
+					        		<td>$company_name</td>
 					        		<td>$birthdate</td>
 					        		<td>$address</td>
 					        		<td>$gender</td>
 					        		<td>$cp_no</td>
 					        		<td>$tel_no</td>
+					        		
+
+
 
 					        	</tr>";
 
@@ -107,14 +110,14 @@
 			 	echo"<table border='3' class='rwd-table'>
 					   			<tr>
 									<th>Name</th>
+					                <th>Company Name</th>
 									<th>Email</th>
 									<th>Birthdate</th>
 									<th>Address</th>
-									<th>Second Address</th>
 									<th>Gender</th>
 									<th>Cellphone Number</th>
 									<th>Telephone Number</th>
-									<th>ACTION</th>
+									<th>Button</th>
 
 								</tr>
 					</table>";

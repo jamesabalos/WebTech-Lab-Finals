@@ -1,10 +1,10 @@
-
+	
 <html>
 <head>
-    <link href="../css/index.css" rel="stylesheet" type="text/css">
+    <link href="../public/css/index.css" rel="stylesheet" type="text/css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> 
    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script> 
-       <link href="../css/bootstrap.css" rel="stylesheet" type="text/css">
+       <link href="../public/css/bootstrap.css" rel="stylesheet" type="text/css">
 </head>
 
 
@@ -52,7 +52,7 @@
 
  <?php
           require ('../ConnectDB.php');
-			$sql = mysqli_query($con,"SELECT * FROM home_owner WHERE req_status='accepted' ");
+			$sql = mysqli_query($con,"SELECT * FROM home_owner WHERE req_status='Accepted' ");
 				// echo($sql->num_rows);
 			// print_r(mysqli_fetch_assoc($sql)['first_name']);
 		if ($sql->num_rows > "0") {

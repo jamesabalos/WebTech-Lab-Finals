@@ -19,8 +19,8 @@
 <html>
 <head>
 	<title>Home Service</title>
-  <?php include 'profileCss.html'; ?>
-  <!-- <link rel="stylesheet" href="profile.css" type="text/css"> -->
+
+  <link rel="stylesheet" href="public/css/profile.css" type="text/css">
 
 </head>
 <body>

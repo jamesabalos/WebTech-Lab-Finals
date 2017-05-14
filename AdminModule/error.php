@@ -5,7 +5,6 @@ session_start();
 <html>
 <head>
 	<title>Error</title>
-
 	<link rel="icon" href="./public/images/home.png">
     <link href="css/index.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" type="text/css" href="./public/css/bootstrap.css">

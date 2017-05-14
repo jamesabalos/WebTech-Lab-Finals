@@ -1,3 +1,8 @@
+<?php
+   // require '../ConnectDB.php';
+    session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,6 +22,7 @@
 
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
 </head>
+
 
     <body>
 
@@ -67,7 +73,7 @@
 
                 <p><a href="forgot.php">Forgot Password?</a></p>
 
-                <input type="submit" value="Login" name="login" class="btn btn-block btn-primary" />
+                <input type="submit" value="Login" name="loginHO" class="btn btn-block btn-primary" />
               </form>
             </div>
           </div>
@@ -89,7 +95,7 @@
 
                 <p><a href="forgot.php">Forgot Password?</a></p>
 
-                <input type="submit" value="Login" name="login" class="btn btn-block btn-primary" />
+                <input type="submit" value="Login" name="loginSP" class="btn btn-block btn-primary" />
               </form>
             </div>
           </div>
@@ -105,7 +111,7 @@
               <h4 class="modal-title">CREATE YOUR FREE ACCOUNT NOW</h4>
             </div>
             <div class="modal-body">
-              <form class="form" action="HOLogin/registration.php" method="POST" enctype="multipart/form-data" autocomplete="off">
+              <form class="form" action="HOLogin/HOreg.php" method="POST" enctype="multipart/form-data" autocomplete="off">
                 <input class="form-control" type="text" placeholder="Last Name" name="last_name" required />
                 <br>
                 <input class="form-control" type="text" placeholder="First Name" name="first_name" required />
@@ -129,7 +135,7 @@
                     <a href="forgot.php">Forgot Password?</a>
                 </p>
 
-                <input type="submit" value="Register" name="login" class="btn btn-block btn-primary" />
+                <input type="submit" value="Register" name="registrationHO" class="btn btn-block btn-primary" />
               </form>
             </div>
           </div>
@@ -145,12 +151,12 @@
               <h4 class="modal-title">SIGN UP FOR A SERVICE PROVIDER ACCOUNT</h4>
             </div>
             <div class="modal-body">
-              <form class="form" action="SPLogin/registration.php" method="POST" enctype="multipart/form-data" autocomplete="off">
+              <form class="form" action="SPLogin/SPreg.php" method="POST" enctype="multipart/form-data" autocomplete="off">
                 <input class="form-control" type="text" placeholder="Last Name" name="last_name" required />
                 <br>
                 <input class="form-control" type="text" placeholder="First Name" name="first_name" required />
                 <br>
-                <input class="form-control" type="text" placeholder="Company Name" name="first_name" required />
+                <input class="form-control" type="text" placeholder="Company Name" name="company_name" required />
                 <br>
                 <input class="form-control" type="email" placeholder="Email" name="email" required />
                 <br>
@@ -171,7 +177,7 @@
                     <a href="forgot.php">Forgot Password?</a>
                 </p>
 
-                <input type="submit" value="Register" name="login" class="btn btn-block btn-primary" />
+                <input type="submit" value="Register" name="registrationSP" class="btn btn-block btn-primary" />
               </form>
             </div>
           </div>

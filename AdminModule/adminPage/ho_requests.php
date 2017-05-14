@@ -1,10 +1,10 @@
 
 <html>
 <head>
-    <link href="../css/index.css" rel="stylesheet" type="text/css">
+    <link href="../public/css/index.css" rel="stylesheet" type="text/css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> 
    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script> 
-       <link href="../css/bootstrap.css" rel="stylesheet" type="text/css">
+       <link href="../public/css/bootstrap.css" rel="stylesheet" type="text/css">
        <script src="updateRequests.js"></script>
 </head>
 
@@ -32,7 +32,7 @@
 
 				    </li>
 
-				    <li class="dropdown">
+				    <li class="dropdown">	
 				        <a href="sp_requests.php" class="dropdown-toggle" >SP REGISTRATION REQUEST</a>
 				       
 
@@ -92,7 +92,9 @@
 					        		<td>$gender</td>
 					        		<td>$cp_no</td>
 					        		<td>$tel_no</td>
-					        		<td><button  style='background-color:green;' type='button' onclick='update_HO_register_rq(this)'>Remove</button></td>
+					        		<td><button  id='accept' value='accept' style='background-color:green;' type='button' onclick='update_HO_register_rq(this)'>Accept</button>
+					        		<button  id='reject' value='reject' style='background-color:red;' type='button' onclick='update_HO_register_rq(this)'>Reject</button>
+					        		</td>
 
 
 

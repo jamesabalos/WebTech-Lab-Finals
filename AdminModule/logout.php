@@ -8,8 +8,8 @@
 <head>
   <meta charset="UTF-8">
   <title>Error</title>
-	  <link rel="stylesheet" href="bootsrap.css">
-	  <link rel="stylesheet" href="form.css">
+	  <link rel="stylesheet" href="public/css/bootsrap.css">
+	  <link rel="stylesheet" href="public/css/form.css">
 
 </head>
 

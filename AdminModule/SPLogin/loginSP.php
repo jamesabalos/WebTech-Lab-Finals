@@ -4,13 +4,13 @@ session_start();
 
 if( !isset($_POST['email']) ){
 	$_SESSION['message'] = "You need to log in first!";
-	header("location: error.php");
+	header("location: ../error.php");
 }
 
 
 
 $email = $_POST['email'];
-$checkEmailResult = mysqli_query($con,"SELECT * FROM service_provider WHERE email='$email'	and req_status = 'active'");
+$checkEmailResult = mysqli_query($con,"SELECT * FROM service_provider WHERE email='$email'");
 $result = $checkEmailResult->fetch_assoc();
 $hash_password = $result['password'];
  $user_has_password = md5($_POST['password']);
@@ -24,19 +24,27 @@ $hash_password = $result['password'];
 			header("location: ../error.php");
 
 		}else{ //user exists
-			//$array = $checkEmailResult->fetch_assoc();
-			//password_verify($_POST['password'],$array['password'])
-			if( $user_has_password == $hash_password ){  //verfiy password
+			//check if account is activated
+			$checkRequestStatus = mysqli_query($con,"SELECT * FROM service_provider WHERE (email='$email' and NOT req_status = 'accepted') ");
+			if( $checkRequestStatus->num_rows > "0" ){ //user does not have an account yet
+				$_SESSION['message'] = "Your account $email has not yet activated!.";
+				header("location: ../error.php");
 
-				$_SESSION['last_name'] = $result['last_name'];
-				$_SESSION['first_name'] = $result['first_name'];
-				$_SESSION['email'] = $result['email'];
-				$_SESSION['logged_in'] = true;
-
-				header("location: profileSP.php");
 			}else{
-				$_SESSION['message'] = "You have entered wrong password, try again.";
-				header("location: ../error.php"); 
+
+				//$array = $checkEmailResult->fetch_assoc();
+				//password_verify($_POST['password'],$array['password'])
+				if( $user_has_password == $hash_password ){  //verfiy password
+
+					$_SESSION['last_name'] = $result['last_name'];
+					$_SESSION['first_name'] = $result['first_name'];
+					$_SESSION['email'] = $result['email'];
+
+					header("location: profileSP.php");
+				}else{
+					$_SESSION['message'] = "You have entered wrong password, try again.";
+					header("location: ../error.php"); 
+				}
 			}
 
 		}

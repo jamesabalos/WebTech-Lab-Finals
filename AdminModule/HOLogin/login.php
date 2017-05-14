@@ -25,20 +25,31 @@ $hash_password = $result['password'];
 			header("location: ../error.php");
 
 		}else{ //user exists
-			//$array = $checkEmailResult->fetch_assoc();
-			//password_verify($_POST['password'],$array['password'])
-			if( $user_has_password == $hash_password ){  //verfiy password
+			//check account if activated or not yet activated
+			$checkRequestStatus = mysqli_query($con,"SELECT * FROM home_owner WHERE email='$email' and req_status = 'Accepted' ");
+			if( $checkRequestStatus->num_rows < "1" ){ 
+				$_SESSION['message'] = "Your account $email has not yet activated!.";
+				header("location: ../error.php");
 
-				$_SESSION['last_name'] = $result['last_name'];
-				$_SESSION['first_name'] = $result['first_name'];
-				$_SESSION['email'] = $result['email'];
-				
-
-				header("location: ../profile.php");
 			}else{
-				$_SESSION['message'] = "You have entered wrong password, try again.";
-				header("location: ../error.php"); 
+
+				//$array = $checkEmailResult->fetch_assoc();
+				//password_verify($_POST['password'],$array['password'])
+				if( $user_has_password == $hash_password ){  //verfiy password
+
+					$_SESSION['last_name'] = $result['last_name'];
+					$_SESSION['first_name'] = $result['first_name'];
+					$_SESSION['email'] = $result['email'];
+					
+
+					header("location: profile.php");
+				}else{
+					$_SESSION['message'] = "You have entered wrong password, try again.";
+					header("location: ../error.php"); 
+				}
 			}
+
+
 
 		}
 
