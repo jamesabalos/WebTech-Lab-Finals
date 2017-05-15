@@ -14,55 +14,60 @@ block content
 							.well
 								p.text-center
 									img.img-circle(src='./images/maleDashboard.png', height='90', width='90', alt='Avatar')
-						.col-sm-10
+						.col-sm-9
 							.well
-								p
-									i.fa.fa-user
-									|  Name:
-								p= ho_booking.name
-								p
-									i.fa.fa-building
-									|  Address:
-								p= ho_booking.address
-								p
-									i.fa.fa-envelope
-									|  Email:
-								p= ho_booking.email
-								p
-									i.fa.fa-phone
-									|   Phone Number:
-								p= ho_booking.cp_no
-								p
-									i.fa.fa-check-square-o
-									|   Service being rendered:
-								p
-									i.fa.fa-calendar
-									|  Date and Time Started:
-								p= ho_booking.startdate + " (" + ho_booking.starttime + ")"
-								p
-									i.fa.fa-money
-									|   Type of Service:
-								p= ho_booking.servtype
-								button.btn.btn-success.btn-sm(type='button', data-toggle='modal', data-target='#addServiceDiv')
-									span.fa.fa-check 
-									|	DONE
-								#addServiceDiv.modal.fade(role='dialog')
-									.modal-dialog
-										// Modal content
-										.modal-content
-											.modal-header
-												button.close(type='button', data-dismiss='modal') ×
-												h4.modal-title Service Done
-											.modal-body
-												.form-group
-													label(for='renderedDate') Date Finished
-													input#addService.form-control(type='text')
+									table.table
+										tbody
+											tr
+												th.head(scope='row') Name
+												td
+													= ho_booking.name
+											tr
+												th.head(scope='row') Address
+												td 
+													= ho_booking.address
+											tr
+												th.head(scope='row') Email
+												td 
+													= ho_booking.email
+											tr
+												th.head(scope='row') Phone Number
+												td 
+													= ho_booking.cp_no
+											tr
+												th.head(scope='row') Service being Rendered
+												td 
+											tr
+												th.head(scope='row') Date and Time Started
+												td
+													= ho_booking.startdate + " (" + ho_booking.starttime + ")"
+											tr
+												th.head(scope='row') Type of Service
+												td 
+													= ho_booking.servtype
+						.col-sm-1
+							button.btn.btn-success.btn-sm(type='button', data-toggle='modal', data-target='#addServiceDiv')
+								span.fa.fa-check 
+								|	DONE
+							#addServiceDiv.modal.fade(role='dialog')
+								.modal-dialog
+									// Modal content
+									.modal-content
+										.modal-header
+											button.close(type='button', data-dismiss='modal') ×
+											h4.modal-title Service Done
 
-												label(for='renderedDate') Time Finished
+										.modal-body
+											.form-group
+												label(for='renderedDate') Date Finished
 												input#addService.form-control(type='text')
 
-												label(for='serviceCost') How much is the total cost?
-												input#addService.form-control(type='text')
+											label(for='renderedDate') Time Finished
+											input#addService.form-control(type='text')
+
+											label(for='serviceCost') How much is the total cost?
+											input#addService.form-control(type='text')
+
 										.modal-footer
 											button.btn.btn-success(type='button')
 												span.fa.fa-check 
