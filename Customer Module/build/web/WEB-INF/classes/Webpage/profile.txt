@@ -47,7 +47,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="http://localhost:8085/Customer_Module"><img class = "logo" src = "logo.png"/></a>
+                    <a class="navbar-brand" href="http://localhost:8085/Customer_Module"><img class = "logo" src = "./images/logo.png"/></a>
                 </div>
                 <!-- Top Menu Items -->
                 <ul class="nav navbar-right top-nav">
@@ -111,7 +111,7 @@
                                 <div class="jumbotron">
                                     <div class="row">
                                         <div class="col-md-4 col-xs-12 col-sm-6 col-lg-4">
-                                            <img src="profile.png
+                                            <img src="./images/profile.png
                                                       " alt="stack photo" class="img">
                                         </div>
                                         <div class="col-md-8 col-xs-12 col-sm-6 col-lg-8">
@@ -136,7 +136,7 @@
                 <!-- /#page-wrapper -->
                 <footer class="footer-distributed">
                     <div class="footer-left">
-                        <img class="logo" src="logo.png">
+                        <img class="logo" src="./images/logo.png">
                         <p class="footer-company-name">RenderIt © 2017</p>
                     </div>
 
