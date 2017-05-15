@@ -1,3 +1,9 @@
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+ 
 <!DOCTYPE html>
 <html lang="en">
 
@@ -33,6 +39,11 @@
     </head>
 
     <body>
+		<sql:setDataSource 
+            driver="com.mysql.jdbc.Driver"
+            url="jdbc:mysql://localhost:3306/webtek"
+            user="root"
+            password=""/>
 
         <div id="wrapper">
 
@@ -46,35 +57,48 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="http://localhost:8085/Customer_Module"><img class = "logo" src = "./images/logo.png"/></a>
+                    <a class="navbar-brand" href="./index.jsp"><img class = "logo" src = "./images/logo.png"/></a>
                 </div>
                 <!-- Top Menu Items -->
                 <ul class="nav navbar-right top-nav">
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i> <b class="caret"></b></a>
                         <ul class="dropdown-menu alert-dropdown">
-                            <li>
-                                <a href="#">Alert Name <span class="label label-default">Alert Badge</span></a>
-                            </li>
-                            <li>
-                                <a href="#">Alert Name <span class="label label-primary">Alert Badge</span></a>
-                            </li>
-                            <li>
-                                <a href="#">Alert Name <span class="label label-success">Alert Badge</span></a>
-                            </li>
-                            <li>
-                                <a href="#">Alert Name <span class="label label-info">Alert Badge</span></a>
-                            </li>
-                            <li>
-                                <a href="#">Alert Name <span class="label label-warning">Alert Badge</span></a>
-                            </li>
-                            <li>
-                                <a href="#">Alert Name <span class="label label-danger">Alert Badge</span></a>
-                            </li>
-                            <li class="divider"></li>
+                            <sql:query var="results">
+                                SELECT service_provider.first_name, service_provider.last_name, reqdate, req_time, reqstatus FROM request JOIN service_provider USING(spid) JOIN home_owner USING(hoid) WHERE reqstatus IN('Accepted', 'Rejected')
+                            </sql:query>
+                            
+                            <c:choose>
+                                <c:when test="${results.rowCount != 0}">
+                                    <c:forEach var="sp" items="${results.rows}">
+					<c:choose>
+                                            <c:when test="${sp.reqstatus == 'Accepted'}">
+						<li>
+                                                    <a href="#">${sp.first_name} ${sp.last_name}<span class='label label-success' style='float:right'>Accepted</span><p style='font-size:11px'>${sp.reqdate} ${sp.req_time}</p></a>
+						</li>
+                                            </c:when>
+                                            <c:otherwise>
+						<c:choose>
+                                                    <c:when test="${sp.reqstatus == 'Rejected'}">
+							<li>
+                                                            <a href="#">${sp.first_name} ${sp.last_name}<span class='label label-danger' style='float:right'>Rejected</span><p style='font-size:11px'>${sp.reqdate} ${sp.req_time}</p></a>
+							</li>
+                                                    </c:when>
+						</c:choose>
+                                            </c:otherwise>
+					</c:choose>
+                                    </c:forEach>
+                                </c:when>
+                                <c:otherwise>
+                                    <li><a href='#'>No notification.</a></li>
+                                </c:otherwise>
+                            </c:choose>
                         </ul>
                     </li>
                     <li class="dropdown">
+							<sql:query var="results">
+                                SELECT CONCAT(first_name, ' ', last_name) FROM home_owner WHERE home_owner.email ='session_email'
+                            </sql:query>
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i>Randy Antero<b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li>
@@ -101,7 +125,7 @@
                             </form>
                         </li>
                         <li>
-                            <a href="http://localhost:8085/Customer_Module"><i class="fa fa-fw fa-home"></i> Home</a>
+                            <a href="./index.jsp"><i class="fa fa-fw fa-home"></i> Home</a>
                         </li>
                         <li>
                             <a href="Dashboard"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>

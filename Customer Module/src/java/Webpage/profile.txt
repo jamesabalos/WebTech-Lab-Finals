@@ -47,7 +47,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="http://localhost:8085/Customer_Module"><img class = "logo" src = "./images/logo.png"/></a>
+                    <a class="navbar-brand" href="./index.jsp"><img class = "logo" src = "./images/logo.png"/></a>
                 </div>
                 <!-- Top Menu Items -->
                 <ul class="nav navbar-right top-nav">
@@ -79,7 +79,7 @@
                             </form>
                         </li>
                         <li>
-                            <a href="http://localhost:8085/Customer_Module"><i class="fa fa-fw fa-home"></i> Home</a>
+                            <a href="./index.jsp"><i class="fa fa-fw fa-home"></i> Home</a>
                         </li>
                         <li>
                             <a href="Dashboard"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
@@ -101,7 +101,7 @@
                             </h1>
                             <ol class="breadcrumb">
                                 <li>
-                                    <i class="fa fa-home"></i>  <a href="http://localhost:8085/Customer_Module">Home</a>
+                                    <i class="fa fa-home"></i>  <a href="./index.jsp">Home</a>
                                 </li>
                                 <li class="active">
                                     <i class="fa fa-fw fa-user"></i> Profile
