@@ -46,9 +46,10 @@ block content
 								td= trans_booking.date_rendered
 								td= trans_booking.time_rendered
 								td= trans_booking.amount
-			h4 Total Amount
+			h2.text-right.totalAmount Total Amount
 			for total_amount in hoList
 				if 	total_amount >= 0	
-					p= total_amount
+					p.text-right.amount
+						= total_amount
 
 
