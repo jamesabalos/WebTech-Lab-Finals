@@ -42,7 +42,6 @@ block content
 												th.head(scrop='row') Service to be Rendered
 												td
 													= ho_request.servtype
-
 						.col-sm-2
 							button.btn.btn-success.btn-md.btn-block(type='button', data-toggle='modal', data-target='#acceptRequest') ACCEPT
 							#acceptRequest.modal.fade(role='dialog')
@@ -58,6 +57,11 @@ block content
 													= ho_request.name
 										.modal-footer
 											button.btn.btn-success(type='button' onclick='acceptRequest(ho_request.reqid)') Accept
+												script.
+													function acceptRequest(){
+														window.location.href = './request'
+													}
+
 											button.btn.btn-danger(type='button', data-dismiss='modal') Close
 							br
 							
@@ -76,5 +80,3 @@ block content
 										.modal-footer
 											button.btn.btn-warning(type='button') Decline
 											button.btn.btn-danger(type='button', data-dismiss='modal') Close
-
-

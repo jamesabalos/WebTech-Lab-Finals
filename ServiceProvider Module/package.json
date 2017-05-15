@@ -16,6 +16,7 @@
     "mysql": "^2.13.0",
     "nodemailer": "*",
     "php-unserialize": "0.0.1",
+    "phpsession": "^0.2.0",
     "serve-favicon": "~2.4.2"
   }
 }
