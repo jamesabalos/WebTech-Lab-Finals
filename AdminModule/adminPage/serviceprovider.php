@@ -3,7 +3,7 @@
 <head>
     <title>Administrator | Service Provider Accounts</title>
 
-	<link href="css/index.css" rel="stylesheet" type="text/css">
+	
     <link rel="stylesheet" type="text/css" href="../public/css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="../public/css/bootstrap-theme.css">
     <link rel="stylesheet" type="text/css" href="../public/css/footer.css">
@@ -63,7 +63,8 @@ if ($sql->num_rows > "0") {
 									<th>Gender</th>
 									<th>Cellphone Number</th>
 									<th>Telephone Number</th>
-									<th>Button</th>
+                                    <th>Status</th>
+									<th>Activate/Deactivate</th>
 
 								</tr>";
     
@@ -77,6 +78,7 @@ if ($sql->num_rows > "0") {
         $gender       = $rows['gender'];
         $cp_no        = $rows['cp_no'];
         $tel_no       = $rows['tel_no'];
+        $status       = $rows['status'];
         
         
         $row = $sql->num_rows; //Dynamic number for rows
@@ -91,14 +93,14 @@ if ($sql->num_rows > "0") {
 					        		<td>$gender</td>
 					        		<td>$cp_no</td>
 					        		<td>$tel_no</td>
-                                    <td>
-                                    <form action='activate.php' method='post'>
-                                        <select name='Value'>
+                                    <td>$status</td>
+                                    <td>                           
+                                      <select name='Value'>
                                         <option value='Active'>Activate</option>
                                         <option value='Inactive'>Deactivate</option>
                                         </select>
-                                        <input type='submit' name='submit' onclick='update_SP_status(this)' value='Update' />
-                                    </form>
+                                        <button  name='submit' onclick='update_SP_status(this)' >Update</button>
+                                
 
                                     </td>
 
@@ -129,7 +131,8 @@ if ($sql->num_rows > "0") {
 									<th>Gender</th>
 									<th>Cellphone Number</th>
 									<th>Telephone Number</th>
-									<th>Button</th>
+                                    <th>Status</th>
+									<th>Activate/Deactivate</th>
 
 								</tr>
 					</table>";

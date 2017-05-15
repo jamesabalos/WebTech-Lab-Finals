@@ -32,12 +32,7 @@
           </div>
           <div class="collapse navbar-collapse" id="myNavbar">
 
-            <ul class="nav navbar-nav">
-            	<li><a href="ho_requests.php">Customer Registration Request</a></li>
-            	<li><a href="homeowner.php">Customer</a></li>
-            	<li><a href="sp_requests.php">Service Provider Registration Request</a></li>
-            	<li><a href="serviceprovider.php">Service Provider</a></li>
-            </ul>
+           
 
             <ul class="nav navbar-nav navbar-right">
 

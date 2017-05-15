@@ -124,3 +124,29 @@ ul.dropdown-menu{
 .searchVertical{
 	padding-top: 8px;
 }
+
+.time{
+	font-size: 0.8em;
+	color: #ea592d;
+	margin-top: -10px;
+}
+
+.date{
+	font-size: 0.9em;
+}
+
+.tab{
+	padding-right: 10px;
+}
+
+.tabRequest{
+	padding-right: 100px;
+}
+
+.infoRequest{
+	color: #ad1b1b;
+}
+
+.head{
+	color: #258e9e;
+}

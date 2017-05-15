@@ -50,7 +50,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="http://localhost:8085/Customer_Module/"><img class = "logo" src = "logo.png"/></a>
+                    <a class="navbar-brand" href="http://localhost:8085/Customer_Module/"><img class = "logo" src = "./images/logo.png"/></a>
                 </div>
                 <!-- Top Menu Items -->
                 <ul class="nav navbar-right top-nav">
@@ -158,7 +158,7 @@
                     </div>
                     <footer class="footer-distributed">
                         <div class="footer-left">
-                            <img class="logo" src="logo.png">
+                            <img class="logo" src="./images/logo.png">
                             <p class="footer-company-name">RenderIt © 2017</p>
                         </div>
 
