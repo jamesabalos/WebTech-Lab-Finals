@@ -56,25 +56,7 @@ function acceptRequest(request_id) {
 
 }
 
-<<<<<<< HEAD
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-=======
->>>>>>> d901cf0a5447c51e7a745f6179d18729c92536a0
 connection.end();
 
 
