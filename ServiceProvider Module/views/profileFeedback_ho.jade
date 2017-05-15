@@ -1,0 +1,72 @@
+extends layout
+
+block content
+	.container.profile
+		.row
+			.col-sm-3.well
+				.well.text-center
+					p     
+						img.img-circle(src='./images/male.png', height='90', width='90', alt='Avatar')
+					p.name= sp_account.name
+					p
+						a(href='/')
+						button.btn.btn-danger.btn-sm(type='button', data-toggle='modal', data-target='#myModal') Logout
+
+
+				.well.text-center
+					p.title SERVICES OFFERED
+					button.btn.btn-success.btn-sm(type='button', data-toggle='modal', data-target='#addServiceDiv') Add
+					#addServiceDiv.modal.fade(role='dialog')
+						.modal-dialog
+							// Modal content
+							.modal-content
+								.modal-header
+									button.close(type='button', data-dismiss='modal') ×
+									h4.modal-title Add a Service
+								.modal-body
+									.form-group
+										label(for='addService') What Service will you add?
+										input#addService.form-control(type='text')
+								.modal-footer
+									button.btn.btn-success(type='button') Add
+									button.btn.btn-danger(type='button', data-dismiss='modal') Close
+					for sp in spList
+						p
+							span.label.label-info= sp.servtype
+				.well
+					p.title.text-center
+						| BASIC INFORMATION
+					p.companyName
+						span.glyphicon.glyphicon-copyright-mark
+						span.tab 
+						= sp_account.company_name
+					p.phoneNumber
+						span.glyphicon.glyphicon-earphone
+						span.tab 
+						= sp_account.cp_no
+					p.email
+						span.glyphicon.glyphicon-envelope
+						span.tab 
+						= sp_account.email
+					p.rating
+						span.glyphicon.glyphicon-star
+						span.tab 
+						= 
+
+			.col-sm-9
+				.row
+					.col-sm-12
+						h1.dashboardHeading FEEDBACKS
+				for feedback in spList
+						if feedback.comment != undefined
+							.row
+								.col-sm-3
+									.well
+										p.text-center 
+											img.img-circle(src='./images/maleDashboard.png', height='90', width='90', alt='Avatar')
+										p.text-center Alejandro Magsaysay
+								.col-sm-9
+									.well
+										p= feedback.comment	
+										p.text-right.date 10/15/2017
+										p.text-right.time 12:20
