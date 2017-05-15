@@ -49,9 +49,11 @@ block content
 						span.tab 
 						= sp_account.email
 					p.rating
-						span.glyphicon.glyphicon-star
-						span.tab 
-						|10
+								span.glyphicon.glyphicon-star
+								span.tab
+								for average_rating in spList
+									if average_rating <= 5 && average_rating >= 0
+										= average_rating
 
 			.col-sm-9
 				.row
@@ -64,9 +66,9 @@ block content
 									.well
 										p.text-center 
 											img.img-circle(src='./images/maleDashboard.png', height='90', width='90', alt='Avatar')
-										p.text-center Alejandro Magsaysay
+										p.text-center= feedback.name
 								.col-sm-9
 									.well
 										p= feedback.comment	
-										p.text-right.date 10/15/2017
-										p.text-right.time 12:20
+										p.text-right.date= feedback.date
+										p.text-right.time= feedback.time
