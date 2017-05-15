@@ -86,9 +86,9 @@ var connection = mysql.createConnection({
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('profile_sp', { title : 'My Profile' });
-  res.render('profile_sp', {'spList': spList});
-  res.render('profile_sp', {'sp_account': sp_account});
+  res.render('profileFeedback_ho', { title : 'Customer Profile' });
+  res.render('profileFeedback_ho', {'spList': spList});
+  res.render('profileFeedback_ho', {'sp_account': sp_account});
   //res.render('profile_sp', {'feedbackList': feedbackList});
 });
 
