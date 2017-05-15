@@ -8,7 +8,7 @@ block content
 				h1 PENDING SERVICE REQUEST/S
 		.col-sm-12
 			for ho_request in hoList
-				if ho_request.reqstatus == "Pending" && ho_request.reqstatus != "Rejected"
+				if ho_request.reqstatus == "Pending"
 					.row
 						.col-sm-2
 							.well
@@ -57,7 +57,7 @@ block content
 												label(for='acceptName') Are you sure you want to accept 
 													= ho_request.name
 										.modal-footer
-											button.btn.btn-success(type='button') Accept
+											button.btn.btn-success(type='button' onclick='acceptRequest(ho_request.reqid)') Accept
 											button.btn.btn-danger(type='button', data-dismiss='modal') Close
 							br
 							
