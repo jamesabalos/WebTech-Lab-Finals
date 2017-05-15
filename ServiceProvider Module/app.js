@@ -13,7 +13,8 @@ var profile = require('./routes/profile_sp');
 var booking = require('./routes/booking_sp');
 var request = require('./routes/request_sp');
 var transaction = require('./routes/transaction_sp');
-var profileCustomer = require('./routes/profileFeedback_ho');
+var profileCustomer = require('./routes/viewProfile');
+var search = require('./routes/search_sp');
 
 var app = express();
 
@@ -35,8 +36,9 @@ app.use('/', index); //home
 app.use('/profile', profile); //profile
 app.use('/booking', booking); //booking
 app.use('/request', request); //request
-app.use('/transactions', transaction); //request
-app.use('/profileCustomer', profileCustomer)
+app.use('/transactions', transaction); //transactions
+app.use('/viewProfile', profileCustomer) //viewProfile
+app.use('/search', search) //Search
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

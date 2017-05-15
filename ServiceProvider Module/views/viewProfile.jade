@@ -48,10 +48,16 @@ block content
 						span.glyphicon.glyphicon-envelope
 						span.tab 
 						= sp_account.email
-					p.rating
-						span.glyphicon.glyphicon-star
-						span.tab 
-						= 
+
+				.well
+					p.title.text-center
+						|	GIVE FEEDBACK AND RATING
+					br
+					form
+						.form-group
+							label(for='Feedback') Write us your feedback.
+							textarea#exampleTextarea.form-control(rows='3')
+						button.btn.btn-success(type='button') Write Feedback
 
 			.col-sm-9
 				.row

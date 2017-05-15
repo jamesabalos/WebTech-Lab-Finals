@@ -56,33 +56,14 @@ function acceptRequest(request_id) {
 
 }
 
-<<<<<<< HEAD
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-=======
->>>>>>> d901cf0a5447c51e7a745f6179d18729c92536a0
 connection.end();
 
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('request_sp', { title : 'Request' });
-  res.render('request_sp', {'hoList': hoList});
-  res.render('index_sp', {'total_request': total_request});
+  res.render('search_sp', { title : 'Search' });
+  res.render('search_sp', {'hoList': hoList});
+  res.render('search_sp', {'total_request': total_request});
 });
 
 module.exports = router;
