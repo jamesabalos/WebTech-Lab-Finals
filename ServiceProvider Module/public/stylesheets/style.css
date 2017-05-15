@@ -150,3 +150,11 @@ ul.dropdown-menu{
 .head{
 	color: #258e9e;
 }
+
+.searchItem{
+	text-decoration: underline;
+	font-size: 1em;
+	color: #960909;
+	text-transform: uppercase;
+
+}

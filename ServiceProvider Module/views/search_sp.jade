@@ -1,0 +1,38 @@
+extends layout
+
+block content
+	.container
+		.row
+			.header.text-center
+				span.fa.fa-search
+				h1 YOU HAVE SEARCHED FOR:
+					p.searchItem Alejandro Dizon
+			.row
+				.col-md-2
+					.well.text-center
+						p     
+							img.img-circle(src='./images/male.png', height='90', width='90', alt='Avatar')
+						p
+							| Alejandro Dizon
+				.col-md-10
+					.well
+						p.name
+							span.glyphicon.fa.fa-user
+							span.tab 
+							|	Alejandro Dizon
+						p.address
+							span.glyphicon.fa.fa-building
+							span.tab 
+							|	Baguio City
+						p.phoneNumber
+							span.glyphicon.fa.fa-phone
+							span.tab 
+							|	09162579820
+						p.email
+							span.glyphicon.fa.fa-envelope
+							span.tab 
+							|	alejandroDizon@gmail.com
+						button.btn.btn-info(type='button') View Account
+
+
+

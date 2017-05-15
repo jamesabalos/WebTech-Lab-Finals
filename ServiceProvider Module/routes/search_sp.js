@@ -61,9 +61,9 @@ connection.end();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('request_sp', { title : 'Request' });
-  res.render('request_sp', {'hoList': hoList});
-  res.render('index_sp', {'total_request': total_request});
+  res.render('search_sp', { title : 'Search' });
+  res.render('search_sp', {'hoList': hoList});
+  res.render('search_sp', {'total_request': total_request});
 });
 
 module.exports = router;

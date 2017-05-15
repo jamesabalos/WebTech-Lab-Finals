@@ -14,6 +14,7 @@ var booking = require('./routes/booking_sp');
 var request = require('./routes/request_sp');
 var transaction = require('./routes/transaction_sp');
 var profileCustomer = require('./routes/profileFeedback_ho');
+var search = require('./routes/search_sp');
 
 var app = express();
 
@@ -37,6 +38,7 @@ app.use('/booking', booking); //booking
 app.use('/request', request); //request
 app.use('/transactions', transaction); //request
 app.use('/profileCustomer', profileCustomer)
+app.use('/search', search)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
