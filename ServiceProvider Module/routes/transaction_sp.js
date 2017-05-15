@@ -40,9 +40,11 @@ var connection = mysql.createConnection({
 		  		// Add object into array
 		  		hoList.push(trans_booking);
 		  		total_amount = rows[i].amount + total_amount;
+		  		length = rows.length;
 	  		}
-	  		console.log(total_amount);
-	  	} 
+	  		hoList.push(total_amount);
+	  	}
+	  	console.log("SUCCESSFUL");
 	});   
 	connection.end();
 
@@ -50,10 +52,6 @@ var connection = mysql.createConnection({
 router.get('/', function(req, res, next) {
   res.render('transaction_sp', { title : 'Transaction' });
   res.render('transaction_sp', {'hoList': hoList});
-  res.render('transaction_sp', {'total_amount': total_amount});
 });
 
 module.exports = router;
-
-
-

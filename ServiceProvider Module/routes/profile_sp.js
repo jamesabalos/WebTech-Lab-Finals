@@ -60,6 +60,8 @@ var connection = mysql.createConnection({
 	  	} 
 	}); 
 
+		var average_rating = 0;
+
 		connection.query('SELECT home_owner.last_name, home_owner.first_name, feedback.comment, feedback.rating, feedback.time, feedback.date FROM home_owner JOIN feedback JOIN service_provider ON feedback.hoid = home_owner.hoid AND service_provider.spid = feedback.spid AND service_provider.email = ' + session_email, function(err, rows, fields) {  
 	  	if (err) {
 	  		res.status(500).json({"status_code": 500,"status_message": "internal server error"});
@@ -77,8 +79,11 @@ var connection = mysql.createConnection({
 		  		}
 		  		// Add object into array
 		  		spList.push(feedback);
+		  		average_rating = rows[i].rating + average_rating;
 	  		} 
-	  		console.log("SUCCESSFUL");
+	  		average_rating = average_rating/rows.length;
+	  		spList.push(average_rating);
+	  		console.log(average_rating);
 	  	}
 	}); 
 
@@ -89,7 +94,6 @@ router.get('/', function(req, res, next) {
   res.render('profile_sp', { title : 'My Profile' });
   res.render('profile_sp', {'spList': spList});
   res.render('profile_sp', {'sp_account': sp_account});
-  //res.render('profile_sp', {'feedbackList': feedbackList});
 });
 
 module.exports = router;
