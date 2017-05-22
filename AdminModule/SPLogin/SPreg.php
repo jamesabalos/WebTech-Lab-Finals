@@ -1,5 +1,5 @@
 <?php
-
+    session_start();
 require_once("../ConnectDB.php");
  
 
@@ -33,10 +33,13 @@ require_once("../ConnectDB.php");
 	  $_SESSION['message'] = "The account $email have successfully registered.";
 	  header('Location: ../success.php');
 
+
 	// header('Location: index.html');
 	}
 	else{
 	 $_SESSION['message'] = "ERROR: Could not connect to database". mysqli_error($con);
+	 session_unset();
+	 session_destroy();
 	 header('location: ../error.php');
 	}
 

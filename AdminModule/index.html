@@ -1,6 +1,9 @@
 <?php
    // require '../ConnectDB.php';
     session_start();
+    if($_SESSION['username'] == 'admin'){
+      header('location:adminPage/adminPage.php');
+    }
 ?>
 
 <!DOCTYPE html>
@@ -34,10 +37,7 @@
           </div>
           <div class="collapse navbar-collapse" id="myNavbar">
 
-            <ul class="nav navbar-nav">
-              <li><a href="index.html">Home</a></li>
-            </ul>
-
+          
             <ul class="nav navbar-nav navbar-right">
 
             </ul>
@@ -82,7 +82,7 @@
                 <p class="break"></p>
                 <input class="form-control" type="password" placeholder="Password" name="password" required/>
                 <p class="break"></p>
-                <p><a href="forgot.php">Forgot Password?</a></p>
+                <p><a href="forgotSP.php" >Forgot Password?</a></p>
                 <p class="break"></p>
                 <input type="submit" value="Login" name="loginSP" class="btn btn-block btn-primary" />
               </form>

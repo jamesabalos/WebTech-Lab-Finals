@@ -3,7 +3,7 @@
 
 session_start();
 
-if( !isset($_POST['email']) ){
+if( !isset($_SESSION['email']) ){
 	$_SESSION['message'] = "You need to log in first!";
 	header("location: ../error.php");
 }
@@ -15,7 +15,7 @@ $checkEmailResult = mysqli_query($con,"SELECT * FROM home_owner WHERE email='$em
 $result = $checkEmailResult->fetch_assoc();
 $hash_password = $result['password'];
  $user_has_password = md5($_POST['password']);
-// print_r($result);
+// print_r($result);	
 // echo $checkEmailResult->num_rows;
 // die;
  	// if( isset($_GET['email']) && !empty($_GET['email']) AND isset($_GET['password']) && !empty($_GET['password'])){
@@ -40,9 +40,10 @@ $hash_password = $result['password'];
 					$_SESSION['last_name'] = $result['last_name'];
 					$_SESSION['first_name'] = $result['first_name'];
 					$_SESSION['email'] = $result['email'];
-					
+					$email = $_SESSION['email'];
+					echo($email);
 
-					header("location: profile.php");
+					header("location: ../profile.php?email=$email");
 				}else{
 					$_SESSION['message'] = "You have entered wrong password, try again.";
 					header("location: ../error.php"); 
@@ -58,6 +59,6 @@ $hash_password = $result['password'];
 	// 	header("location: error.php");
 	// }
 
-
+mysqli_close($con);
 
 ?>

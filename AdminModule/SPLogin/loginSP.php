@@ -25,7 +25,7 @@ $hash_password = $result['password'];
 
 		}else{ //user exists
 			//check if account is activated
-			$checkRequestStatus = mysqli_query($con,"SELECT * FROM service_provider WHERE (email='$email' and NOT req_status = 'accepted') ");
+			$checkRequestStatus = mysqli_query($con,"SELECT * FROM service_provider WHERE (email='$email' and NOT req_status = 'accepted'  ) ");
 			if( $checkRequestStatus->num_rows > "0" ){ //user does not have an account yet
 				$_SESSION['message'] = "Your account $email has not yet activated!.";
 				header("location: ../error.php");
@@ -34,7 +34,9 @@ $hash_password = $result['password'];
 
 				//$array = $checkEmailResult->fetch_assoc();
 				//password_verify($_POST['password'],$array['password'])
-				if( $user_has_password == $hash_password ){  //verfiy password
+			$checkStatus = mysqli_query($con,"SELECT * FROM service_provider WHERE (email='$email' and  status = 'active'  ) ");		
+			 if($checkStatus->num_rows > 0)	{
+			 	if( $user_has_password == $hash_password ){  //verfiy password
 
 					$_SESSION['last_name'] = $result['last_name'];
 					$_SESSION['first_name'] = $result['first_name'];
@@ -45,9 +47,15 @@ $hash_password = $result['password'];
 					$_SESSION['message'] = "You have entered wrong password, try again.";
 					header("location: ../error.php"); 
 				}
+			}else{
+				$_SESSION['message'] = "Your account is not active Contact the administrator to Reactivate your account.";
+				header("location: ../error.php");
+			}	
+				
 			}
 
 		}
+
 
 	// }else{
 	// 	$_SESSION['message'] = "Something is error!";

@@ -12,7 +12,7 @@
 		if ($sql->num_rows > "0") {
 		 if($status == 'accept'){
 
-	   		$update = "UPDATE `service_provider` SET req_status='Accepted' WHERE email='$spEmail' ";
+	   		$update = "UPDATE `service_provider` SET req_status='Accepted',status='active' WHERE email='$spEmail' ";
 	   		if(mysqli_query($con, $update)){
 			  	echo ("Successfully Updated");
 			 }

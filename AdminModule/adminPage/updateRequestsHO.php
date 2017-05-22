@@ -18,7 +18,8 @@
 			   	$update = "UPDATE `home_owner` SET req_status='Accepted' WHERE email='$hoEmail' ";
 
 		   		if(mysqli_query($con, $update)){
-				  	echo ("Successfully Updated");
+				  	echo ("Alert(console.log('Successfully updated'))");
+
 
 				  }		
 

@@ -30,6 +30,8 @@ session_start();
 				<?php
 				if( isset($_SESSION['message']) AND !empty($_SESSION['message']) ):
 					echo $_SESSION['message'];
+				session_unset();
+				session_destroy();
 				else:
 					header("location: index.html");
 				endif;

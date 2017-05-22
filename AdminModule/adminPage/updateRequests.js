@@ -26,32 +26,6 @@ function update_HO_register_rq(r){
                   }
 
 
-                  // ajaxRequest.open("POST", "updateRequests.php",false);
-
-                  // try{
-                  //   ajaxRequest.send(hoEmail);
-                  //     if(ajaxRequest.readyState == 4 && ajaxRequest.status == 4){
-                  //          alert(ajaxRequest.responseText);
-                  //     }
-                  // }catch(e){
-                  //   alert("Server is not responding.");
-                    
-                  // }
-
-
-                    // ajaxRequest.onreadystatechange = function(){
-                    //   if(ajaxRequest.readyState == 4){   // request received 
-
-                    //       alert(ajaxRequest.responseText);
-                    //     // alert("send successfully");
-                    //     location.reload();
-
-                    
-                    //   }
-                    // }
-
-                    // var temp = [{idNo: array[i].idNo, name: array[i].name, gatePassNumber:array[i].gatePassNumber, serialNumber:array[i].serialNumber, dateBorrowed:array[i].dateBorrowed, courseAndYear:array[i].courseAndYear ,dateReturned:array[i].dateReturned ,remarks:array[i].remarks }];
-                    // ajaxRequest.send(JSON.stringify(temp));
                     ajaxRequest.open("POST", "updateRequestsHO.php",false);
                     ajaxRequest.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
                     ajaxRequest.setRequestHeader('Content-Type', 'application/json');
@@ -88,32 +62,7 @@ function update_SP_register_rq(r){
                   }
 
 
-                  // ajaxRequest.open("POST", "updateRequests.php",false);
-
-                  // try{
-                  //   ajaxRequest.send(hoEmail);
-                  //     if(ajaxRequest.readyState == 4 && ajaxRequest.status == 4){
-                  //          alert(ajaxRequest.responseText);
-                  //     }
-                  // }catch(e){
-                  //   alert("Server is not responding.");
-                    
-                  // }
-
-
-                    // ajaxRequest.onreadystatechange = function(){
-                    //   if(ajaxRequest.readyState == 4){   // request received 
-
-                    //       alert(ajaxRequest.responseText);
-                    //     // alert("send successfully");
-                    //     location.reload();
-
-                    
-                    //   }
-                    // }
-
-                    // var temp = [{idNo: array[i].idNo, name: array[i].name, gatePassNumber:array[i].gatePassNumber, serialNumber:array[i].serialNumber, dateBorrowed:array[i].dateBorrowed, courseAndYear:array[i].courseAndYear ,dateReturned:array[i].dateReturned ,remarks:array[i].remarks }];
-                    // ajaxRequest.send(JSON.stringify(temp));
+         
                     ajaxRequest.open("POST", "updateRequestsSP.php",false);
                     ajaxRequest.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
                     ajaxRequest.setRequestHeader('Content-Type', 'application/json');
@@ -152,32 +101,8 @@ function update_SP_status(r){
                   }
 
 
-                  // ajaxRequest.open("POST", "updateRequests.php",false);
-
-                  // try{
-                  //   ajaxRequest.send(hoEmail);
-                  //     if(ajaxRequest.readyState == 4 && ajaxRequest.status == 4){
-                  //          alert(ajaxRequest.responseText);
-                  //     }
-                  // }catch(e){
-                  //   alert("Server is not responding.");
-                    
-                  // }
-
-
-                    // ajaxRequest.onreadystatechange = function(){
-                    //   if(ajaxRequest.readyState == 4){   // request received 
-
-                    //       alert(ajaxRequest.responseText);
-                    //     // alert("send successfully");
-                    //     location.reload();
-
-                    
-                    //   }
-                    // }
-
-                    // var temp = [{idNo: array[i].idNo, name: array[i].name, gatePassNumber:array[i].gatePassNumber, serialNumber:array[i].serialNumber, dateBorrowed:array[i].dateBorrowed, courseAndYear:array[i].courseAndYear ,dateReturned:array[i].dateReturned ,remarks:array[i].remarks }];
-                    // ajaxRequest.send(JSON.stringify(temp));
+            
+                 
                     ajaxRequest.open("POST", "activate.php",false);
                      ajaxRequest.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
                     ajaxRequest.setRequestHeader('Content-Type', 'application/json');

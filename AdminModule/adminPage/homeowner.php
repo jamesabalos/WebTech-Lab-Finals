@@ -25,22 +25,25 @@
       <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container-fluid">
           <div class="navbar-header">
-            <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#myNavbar"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a class="navbar-brand" href="adminLogin.php"><img class="logo" src="../public/images/LogoAdmin.png"/></a>
+            <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#myNavbar"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a class="navbar-brand" href="adminPage.php"><img class="logo" src="../public/images/LogoAdmin.png"/></a>
           </div>
           <div class="collapse navbar-collapse" id="myNavbar">
 
             <ul class="nav navbar-nav">
-            	<li><a href="ho_requests.php">Customer Registration Request</a></li>
-            	<li><a href="homeowner.php">Customer</a></li>
-            	<li><a href="sp_requests.php">Service Provider Registration Request</a></li>
-            	<li><a href="serviceprovider.php">Service Provider</a></li>
+                <li><a href="ho_requests.php">Customer Registration Request |</a></li>
+                <li><a href="homeowner.php">Customer |</a></li>
+                <li><a href="sp_requests.php">SP Registration Request |</a></li>
+              <li><a href="serviceprovider.php">Service Provider |</a></li>
+              <li><a href="request.php">Request |</a></li>
+                <li><a href="transaction.php">Transaction |</a></li>
+              <li><a href="booking_ongoing.php">Booking |</a></li>
             </ul>
 
             <ul class="nav navbar-nav navbar-right">
 
-            	<li><a href="" type="button" data-toggle="modal" data-target="#AdminLogin"><span class="fa fa-sign-in"></span>	LOGIN</a></li>
+            	<!-- <li><a href="" type="button" data-toggle="modal" data-target="#AdminLogin"><span class="fa fa-sign-in"></span>	LOGIN</a></li> -->
 
-            	<li><a href=""><span class="fa fa-sign-out"></span>	LOGOUT</a></li>
+            	<li><a href="logout.php"><span class="fa fa-sign-out"></span>	LOGOUT</a></li>
 
             </ul>
           </div>

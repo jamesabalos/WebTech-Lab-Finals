@@ -13,7 +13,7 @@ session_start();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="icon" href="./public/images/home.png">
+    <link rel="icon" href="../public/images/home.png">
 
     <link href="css/index.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" type="text/css" href="./public/css/bootstrap.css">
@@ -62,9 +62,10 @@ session_start();
 	if($_SERVER['REQUEST_METHOD'] == 'POST'){
 		if( isset($_POST['resetPassword']) ){
 			$email = $_POST['email'];
-			$queryResult = mysqli_query($con,"SELECT * FROM users WHERE email='$email'");
+       
+			//$queryResult = mysqli_query($con,"SELECT * FROM home_owner WHERE email='$email'");
 
-			 $checkEmailDuplicate = mysqli_query($con,"SELECT * FROM users WHERE email='$email'");
+			 $checkEmailDuplicate = mysqli_query($con,"SELECT * FROM home_owner WHERE email='$email'");
 
 			 if($checkEmailDuplicate->num_rows > "0"){
 
@@ -72,7 +73,7 @@ session_start();
 					if( $_POST['newPassword'] == $_POST['confirmNewPassword'] ){
 						$userNewPassword =  md5($_POST['newPassword']);
 
-						if( mysqli_query($con,"UPDATE users SET password='$userNewPassword' WHERE email='$email'") ){
+						if( mysqli_query($con,"UPDATE home_owner SET password='$userNewPassword' WHERE email='$email'") ){
 							$_SESSION['message'] = "Your password has been reset successfully!";
 							header("location: success.php");
 						}else{
@@ -89,7 +90,6 @@ session_start();
 			 	$_SESSION['message'] = 'User with this email does not exist!';
 			 	header("location: error.php");
 			 }
-
 
 		}
   	}
